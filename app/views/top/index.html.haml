@@ -1,9 +1,16 @@
-.row-fluid
-  .span12
-    .hero-unit
+.well
+  .row-fluid
+    .span12
       .content
         .text-center
           %h1 Dashbozu
+          %h4 Store and notify your all development activities.
+          = image_tag 'overview.png', {style: 'height:320px;'}
+  .row-fluid{style: 'margin-top: 30px;'}
+    .content
+      .text-center
+        .span12
+          %h4 Getting start with GitHub account
           = form_tag user_omniauth_authorize_path(:github), :method => 'post' do |f|
             %button.btn.btn-primary.btn-large
               %i.icon-signin
