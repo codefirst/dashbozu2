@@ -30,18 +30,9 @@
               %li= link_to "Link 3", "/path3"
 
     .container-fluid
+      = bootstrap_flash
 
-      .row-fluid
-        .span3
-          .well.sidebar-nav
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
-        .span9
-          = bootstrap_flash
-          = yield
+      = yield
 
       %footer
         %p Copyright (C) 2011-2013 <a href='http://www.codefirst.org'>codefirst.org</a>. All rights reserved.
