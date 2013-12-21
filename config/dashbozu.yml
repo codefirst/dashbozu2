@@ -1,0 +1,7 @@
+omniauth:
+  github:
+    key: <%= ENV['GITHUB_KEY'] || '' %>
+    secret: <%= ENV['GITHUB_SECRET'] || '' %>
+  bitbucket:
+    key: <%= ENV['BITBUCKET_KEY'] || '' %>
+    secret: <%= ENV['BITBUCKET_SECRET'] || '' %>
