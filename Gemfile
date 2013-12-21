@@ -59,3 +59,4 @@ gem 'omniauth-github'
 gem 'omniauth-bitbucket'
 gem 'settingslogic'
 
+gem 'quiet_assets'

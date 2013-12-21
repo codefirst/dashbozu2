@@ -1,0 +1,19 @@
+%h1 Listing projects
+%table
+  %thead
+    %tr
+      %th Name
+      %th Created by
+      %th
+      %th
+      %th
+  %tbody
+    - @projects.each do |project|
+      %tr
+        %td= project.name
+        %td= project.created_by
+        %td= link_to 'Show', project
+        %td= link_to 'Edit', edit_project_path(project)
+        %td= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Project', new_project_path

@@ -1,0 +1,9 @@
+.hero-unit
+  .content
+    .text-center
+      %h1 CodeNami
+      = form_tag user_omniauth_authorize_path(:github), :method => 'post' do |f|
+        %button.btn.btn-primary.btn-large
+          %i.icon-signin
+          = "#{t(:button_sign_in)} with GitHub"
+
