@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20131221143524) do
     t.string   "nickname"
     t.string   "image"
     t.string   "token"
-    t.integer  "parent_user_id"
+    t.integer  "dashbozu_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
