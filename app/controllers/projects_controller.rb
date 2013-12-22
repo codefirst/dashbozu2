@@ -4,7 +4,9 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = current_user.service_users.reduce ([]) do |projs, user|
+      projs += user.projects
+    end
   end
 
   # GET /projects/1
