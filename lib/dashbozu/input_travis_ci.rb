@@ -17,7 +17,7 @@ module Dashbozu
         body: p['message'],
         url: "https://travis-ci.org/#{repos_owner}/#{repos_name}/builds/#{p["id"]}",
         author: p['author_name'],
-        status: p['status_message'] == 'Passed' ? 'success' : 'failure',
+        status: p['status_message'] == 'Fixed' || p['status_message'] == 'Passed' ? 'success' : 'failure',
         source: 'travis_ci'
       )]
     end
