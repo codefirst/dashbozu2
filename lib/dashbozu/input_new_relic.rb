@@ -13,7 +13,7 @@ module Dashbozu
     def hook(project, payload_body)
       a = MultiJson.load(payload_body)
       [Activity.new(
-        project: project,
+        project: project.id,
         title: "#{a['application_name']}: #{a['message']}",
         body: a['long_description'],
         url: a['alert_url'],

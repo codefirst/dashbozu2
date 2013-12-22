@@ -11,7 +11,7 @@ module Dashbozu
       repos_name = json['repository']
       json['commits'].map do |c|
         Activity.new(
-          project: project,
+          project: project.id,
           title: "#{repos_name} / #{c['id'][0..8]}",
           body: c['message'],
           url: c['url'],
