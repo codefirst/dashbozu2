@@ -70,13 +70,17 @@ class ProjectsController < ApplicationController
     oauth = session["#{provider}_oauth"]
     @owners = [nickname] + current_user.organizations(provider, oauth)
     @projects = current_user.projects_from_service(provider, oauth, owner) || []
+    @associated_projects = service_user.projects
   end
 
   def toggle
-    condition = {provider: params[:provider], name: params[:name]}
+    provider = params[:provider]
+    service_user = current_user.service_user(provider)
+    condition = {provider: provider, name: params[:name]}
     project = Project.where(condition).first
     project ||= Project.new(condition)
-    project.users << current_user unless project.users.exists?(current_user)
+    project.users << service_user unless project.users.exists?(service_user)
+
 #    repository.enabled = !repository.enabled
 #    if repository.enabled
 #      register_hook(params[:provider], params[:owner], params[:name])
@@ -84,7 +88,7 @@ class ProjectsController < ApplicationController
 #      remove_hook(params[:provider], params[:owner], params[:name])
 #    end
     project.save
-    redirect_to projects_from_service_path(params[:provider])
+    redirect_to projects_from_service_path(provider)
   end
 
   private
