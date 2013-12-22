@@ -12,7 +12,6 @@ gem 'haml-rails'
 group :development, :test do
   gem 'sqlite3'
   gem 'erb2haml'
-  gem 'quiet_assets'
 end
 
 group :production do
@@ -21,6 +20,7 @@ group :production do
 end
 
 gem 'thin'
+gem 'quiet_assets'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

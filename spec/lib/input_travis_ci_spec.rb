@@ -8,8 +8,7 @@ describe 'Dashbozu::InputTravisCI' do
   context 'hook' do
     before {
     @payload = <<PAYLOAD
-{
-  "payload": {
+  {
     "id": 1,
     "number": 1,
     "status": null,
@@ -60,7 +59,6 @@ describe 'Dashbozu::InputTravisCI' do
       }
     ]
   }
-}
 PAYLOAD
       @project = Project.new
       @activities = Dashbozu::InputTravisCI.new.hook(@project, @payload)
