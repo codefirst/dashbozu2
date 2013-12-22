@@ -4,15 +4,22 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
-
 gem 'haml-rails'
-group :development do
+
+group :development, :test do
+  gem 'sqlite3'
   gem 'erb2haml'
+  gem 'quiet_assets'
 end
+
+group :production do
+  gem 'pg'
+end
+
+gem 'thin'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -62,5 +69,4 @@ gem 'omniauth-github'
 gem 'omniauth-bitbucket'
 gem 'settingslogic'
 
-gem 'quiet_assets'
 gem 'octokit'
