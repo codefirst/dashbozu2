@@ -62,8 +62,14 @@ class ProjectsController < ApplicationController
   end
 
   def from_service
-    @owners = []
-    @projects = []
+    provider = params[:provider]
+    service_user = current_user.service_user(provider)
+    nickname = service_user.nickname
+    params[:owner] ||= nickname
+    owner = params[:owner]
+    oauth = session["#{provider}_oauth"]
+    @owners = [nickname] + current_user.organizations(provider, oauth)
+    @projects = current_user.projects_from_service(provider, oauth, owner) || []
   end
 
   private

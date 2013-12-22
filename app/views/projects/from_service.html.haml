@@ -9,12 +9,10 @@
     %ul.nav.nav-list
       %li.nav-header Accounts
       - @owners.each do |owner|
-        %li{class: (params[:owner] == owner ? 'active' : '')}= link_to owner, user_repositories_path(params[:provider], owner: owner)
+        %li{class: (params[:owner] == owner ? 'active' : '')}= link_to owner, projects_from_service_path(params[:provider], owner: owner)
 
   .span10
     %table.table.table-striped
       - @projects.each do |project|
         %tr
-          %td= "#{project.owner}/#{project.name}"
-          %td.make-switch.project-toggle
-            =check_box_tag '','', (project.nil? and project.enabled), 'class' => 'project-toggle', 'code-nami-url' => toggle_repository_path(params[:provider], owner: project.owner, name: project.name)
+          %td= project.name

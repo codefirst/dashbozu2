@@ -21,4 +21,24 @@ class User < ActiveRecord::Base
 
     dashbozu_user
   end
+
+  def service_user(provider)
+    self.service_users.where(provider: provider).first
+  end
+
+  def organizations(provider, oauth)
+    user = service_user(provider)
+    return [] unless user
+    service_client = ServiceClientFactory.new_instance(user, oauth)
+    return [] unless service_client
+    service_client.organizations
+  end
+
+  def projects_from_service(provider, oauth, owner)
+    user = service_user(provider)
+    return [] unless user
+    service_client = ServiceClientFactory.new_instance(user, oauth)
+    return [] unless service_client
+    service_client.projects(owner)
+  end
 end

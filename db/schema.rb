@@ -27,11 +27,15 @@ ActiveRecord::Schema.define(version: 20131222011440) do
   end
 
   create_table "projects", force: true do |t|
+    t.string   "provider"
     t.string   "name"
     t.integer  "created_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "projects", ["api_key"], name: "index_projects_on_api_key", unique: true
+  add_index "projects", ["provider"], name: "index_projects_on_provider"
 
   create_table "users", force: true do |t|
     t.string   "provider"

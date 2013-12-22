@@ -63,3 +63,4 @@ gem 'omniauth-bitbucket'
 gem 'settingslogic'
 
 gem 'quiet_assets'
+gem 'octokit'
