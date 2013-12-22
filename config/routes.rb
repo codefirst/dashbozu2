@@ -12,4 +12,6 @@ Dashbozu2::Application.routes.draw do
     delete 'sign_out', to: 'authentication#logout', as: :destroy_user_session
   end
   get ':controller/:action', controller: 'authentication'
+
+  post 'hook/:api_key/:name', to: 'hook#hook', as: :hook_path
 end
