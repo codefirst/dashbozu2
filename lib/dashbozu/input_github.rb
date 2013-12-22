@@ -15,7 +15,7 @@ module Dashbozu
           title: "#{repos_name} / #{c['id'][0..8]}",
           body: c['message'],
           url: c['url'],
-          author: c['author'],
+          author: c['author']['username'],
           source: 'github'
        )
       end
