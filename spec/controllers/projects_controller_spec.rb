@@ -20,6 +20,12 @@ require 'spec_helper'
 
 describe ProjectsController do
 
+  before do
+    user = User.new(name: 'name', nickname: 'nickname')
+    user.save
+    sign_in user
+  end
+
   # This should return the minimal set of attributes required to create a valid
   # Project. As you add validations to Project, be sure to
   # adjust the attributes here as well.
