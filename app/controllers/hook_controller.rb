@@ -28,6 +28,7 @@ class HookController < ApplicationController
 
     activities = input_plugin.hook(project, payload)
     activities.each do |activity|
+      Rails.logger.info activity.to_json
       activity.save!
     end
 

@@ -11,7 +11,7 @@ module Dashbozu
     end
 
     def hook(project, payload_body)
-      p = MultiJson.load(payload_body)['payload']
+      p = MultiJson.load(payload_body)
       repos_name = p['repository']['name']
       repos_owner = p['repository']['owner_name']
       [Activity.new(
