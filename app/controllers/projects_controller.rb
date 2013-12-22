@@ -72,6 +72,21 @@ class ProjectsController < ApplicationController
     @projects = current_user.projects_from_service(provider, oauth, owner) || []
   end
 
+  def toggle
+    condition = {provider: params[:provider], name: params[:name]}
+    project = Project.where(condition).first
+    project ||= Project.new(condition)
+    project.users << current_user unless project.users.exists?(current_user)
+#    repository.enabled = !repository.enabled
+#    if repository.enabled
+#      register_hook(params[:provider], params[:owner], params[:name])
+#    else
+#      remove_hook(params[:provider], params[:owner], params[:name])
+#    end
+    project.save
+    redirect_to projects_from_service_path(params[:provider])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project

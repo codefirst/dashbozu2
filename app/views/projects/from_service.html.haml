@@ -16,3 +16,5 @@
       - @projects.each do |project|
         %tr
           %td= project.name
+          %td.make-switch.project-toggle
+            =check_box_tag '','', project.users.exists?(current_user), 'class' => 'project-toggle', 'dashbozu-url' => toggle_project_path(params[:provider], name: project.name)
