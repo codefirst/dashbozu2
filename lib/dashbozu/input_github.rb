@@ -9,7 +9,7 @@ module Dashbozu
     def hook(project, params)
       payload_body = params[:payload]
       json = MultiJson.load(payload_body)
-      repos_name = json['repository']
+      repos_name = json['repository']['name']
       json['commits'].map do |c|
         Activity.new(
           project_id: project.id,
