@@ -5,3 +5,8 @@ en:
   button_sign_out: Sign out
 
   button_repositories: Repositories
+
+  label_provider: Provider
+  label_image: Image
+  label_user_name: User name
+  label_user_nickname: Nickname
