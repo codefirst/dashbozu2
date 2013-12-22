@@ -21,9 +21,10 @@ require 'spec_helper'
 describe ProjectsController do
 
   before do
-    user = User.new(name: 'name', nickname: 'nickname')
-    user.save
-    sign_in user
+    @user = User.create!(name: 'name', nickname: 'nickname')
+    @github_user = User.create!(name: 'github_user', provider: 'github')
+    @user.service_users << @github_user
+    sign_in @user
   end
 
   # This should return the minimal set of attributes required to create a valid
@@ -39,6 +40,7 @@ describe ProjectsController do
   describe "GET index" do
     it "assigns all projects as @projects" do
       project = Project.create! valid_attributes
+      project.users << @github_user
       get :index, {}, valid_session
       assigns(:projects).should eq([project])
     end
