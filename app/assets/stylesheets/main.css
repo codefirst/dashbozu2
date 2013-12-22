@@ -2,3 +2,14 @@ footer {
   text-align: center;
   color: #aeaeae;
 }
+
+.brand > img {
+  height: 22px;
+}
+
+.navbar ul.nav {
+  padding-top: 3px;
+}
+.navbar .btn {
+  padding-top: 10px;
+}
