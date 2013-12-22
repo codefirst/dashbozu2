@@ -1,7 +1,30 @@
-omniauth:
-  github:
-    key: <%= ENV['GITHUB_KEY'] || '' %>
-    secret: <%= ENV['GITHUB_SECRET'] || '' %>
-  bitbucket:
-    key: <%= ENV['BITBUCKET_KEY'] || '' %>
-    secret: <%= ENV['BITBUCKET_SECRET'] || '' %>
+defaults: &defaults
+  omniauth:
+    github:
+      key: <%= ENV['GITHUB_KEY'] || '' %>
+      secret: <%= ENV['GITHUB_SECRET'] || '' %>
+    bitbucket:
+      key: <%= ENV['BITBUCKET_KEY'] || '' %>
+      secret: <%= ENV['BITBUCKET_SECRET'] || '' %>
+  output:
+    asakusa_satellite:
+      url: <%= ENV['OUTPUT_ASAKUSA_SATELLILTE_URL'] || '' %>
+      api_key: <%= ENV['OUTPUT_ASAKUSA_SATELLILTE_API_KEY'] || '' %>
+      room_id: <%= ENV['OUTPUT_ASAKUSA_SATELLILTE_ROOM_ID'] || '' %>
+      message_template: <%= ENV['OUTPUT_ASAKUSA_SATELLILTE_MESSAGE_TEMPLATE'] || '' %>
+
+production:
+  <<: *defaults
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+  output:
+    asakusa_satellite:
+      url: "TEST_URL"
+      api_key: "TEST_API_KEY"
+      room_id: "TEST_ROOM_ID"
+      message_template: "<%%= activity.title %>"
+

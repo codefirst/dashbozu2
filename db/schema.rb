@@ -28,12 +28,10 @@ ActiveRecord::Schema.define(version: 20131222011440) do
 
   create_table "projects", force: true do |t|
     t.string   "name"
-    t.string   "api_key",    null: false
+    t.integer  "created_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "projects", ["api_key"], name: "index_projects_on_api_key", unique: true
 
   create_table "users", force: true do |t|
     t.string   "provider"
@@ -42,7 +40,7 @@ ActiveRecord::Schema.define(version: 20131222011440) do
     t.string   "nickname"
     t.string   "image"
     t.string   "token"
-    t.integer  "dashbozu_user_id"
+    t.integer  "parent_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
