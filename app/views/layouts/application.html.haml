@@ -18,17 +18,8 @@
     .navbar.navbar-fluid-top.navbar-inverse
       .navbar-inner
         .container-fluid
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
           %a.brand(href=root_path)=image_tag "white_logo.png"
-          .container.nav-collapse
-            %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
-
+          .container
             - if user_signed_in?
               %ul.nav.pull-right.dropdown
                 %li
