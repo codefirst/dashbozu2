@@ -92,6 +92,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.2)
     multipart-post (1.2.0)
+    newrelic_rpm (3.7.1.180)
     oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -215,6 +216,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   less-rails
+  newrelic_rpm
   octokit
   omniauth
   omniauth-bitbucket
