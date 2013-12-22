@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe 'Dashbozu::InputGitHub' do
-  context 'payload' do
-    subject { Dashbozu::InputGitHub.new }
-    its (:payload) { should eq 'payload' }
-  end
   context 'hook' do
     before {
 @payload = <<PAYLOAD
@@ -154,7 +150,7 @@ describe 'Dashbozu::InputGitHub' do
 }
 PAYLOAD
       @project = Project.new
-      @activities = Dashbozu::InputGitHub.new.hook(@project, @payload)
+      @activities = Dashbozu::InputGitHub.new.hook(@project, payload: @payload)
     }
     context 'length' do
       subject { @activities }

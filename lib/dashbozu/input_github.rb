@@ -6,7 +6,8 @@ module Dashbozu
       super
     end
 
-    def hook(project, payload_body)
+    def hook(project, params)
+      payload_body = params[:payload]
       json = MultiJson.load(payload_body)
       repos_name = json['repository']
       json['commits'].map do |c|

@@ -13,12 +13,6 @@ class HookController < ApplicationController
 
     input_plugin = input_plugin.new
 
-    payload = params[input_plugin.payload]
-    unless payload
-      render json: {status: 'error', message: 'payload not found'}, status: 404
-      return
-    end
-
     api_key = params[:api_key]
     project = Project.find_by_api_key api_key if api_key
     if api_key == nil || project == nil
@@ -26,7 +20,7 @@ class HookController < ApplicationController
       return
     end
 
-    activities = input_plugin.hook(project, payload)
+    activities = input_plugin.hook(project, params)
     activities.each do |activity|
       Rails.logger.info activity.to_json
       activity.save!

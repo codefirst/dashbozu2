@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe 'Dashbozu::InputNewRelic' do
-  context 'payload' do
-    subject { Dashbozu::InputNewRelic.new }
-    its (:payload) { should eq 'alert' }
-  end
   context 'hook' do
     before {
     @payload = <<PAYLOAD
@@ -21,7 +17,7 @@ describe 'Dashbozu::InputNewRelic' do
 }
 PAYLOAD
       @project = Project.new
-      @activities = Dashbozu::InputNewRelic.new.hook(@project, @payload)
+      @activities = Dashbozu::InputNewRelic.new.hook(@project, alert: @payload)
     }
     context 'length' do
       subject { @activities }
@@ -35,6 +31,16 @@ PAYLOAD
       its (:url) { should eq 'http://PATH_TO_NEW_RELIC' }
       its (:status) { should eq 'alert' }
       its (:author) { should eq 'Account name' }
+    end
+  end
+  context 'deployment' do
+    before {
+      @project = Project.new
+      @activities = Dashbozu::InputNewRelic.new.hook(@project, deployment: '{}')
+    }
+    context 'length' do
+      subject { @activities }
+      its (:length) { should eq 0 }
     end
   end
 end

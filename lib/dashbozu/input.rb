@@ -4,11 +4,7 @@ module Dashbozu
       super
     end
 
-    def payload
-      'payload'
-    end
-
-    def hook(project, payload_body)
+    def hook(project, params)
       []
     end
   end

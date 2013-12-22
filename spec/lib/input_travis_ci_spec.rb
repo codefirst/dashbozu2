@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe 'Dashbozu::InputTravisCI' do
-  context 'payload' do
-    subject { Dashbozu::InputTravisCI.new }
-    its (:payload) { should eq 'payload' }
-  end
   context 'hook' do
     before {
     @payload = <<PAYLOAD
@@ -61,7 +57,7 @@ describe 'Dashbozu::InputTravisCI' do
   }
 PAYLOAD
       @project = Project.new
-      @activities = Dashbozu::InputTravisCI.new.hook(@project, @payload)
+      @activities = Dashbozu::InputTravisCI.new.hook(@project, payload: @payload)
     }
     context 'length' do
       subject { @activities }

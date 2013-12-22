@@ -6,11 +6,8 @@ module Dashbozu
       super
     end
 
-    def payload
-      'payload'
-    end
-
-    def hook(project, payload_body)
+    def hook(project, params)
+      payload_body = params[:payload]
       p = MultiJson.load(payload_body)
       repos_name = p['repository']['name']
       repos_owner = p['repository']['owner_name']
