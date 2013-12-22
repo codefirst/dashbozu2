@@ -2,3 +2,6 @@ language: ruby
 rvm:
   - 1.9.3
   - 2.0.0
+notifications:
+  webhooks:
+    secure: "EegoDdqSD1anlPitrLQkzBKceOUiGOwPGBPqQtbrBvpUCEOAe30Lr23mKc91NeFEcE7D7gDkYt7B34kjHnWixseI/dylz0KnHUahBRgg4KxQ2RFHKocjMaB7aBrZOGw6pH0xBuqycGcT5m5ShZs+z+6/cmGhXrX1DakbpfZm1N8="
