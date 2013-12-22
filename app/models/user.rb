@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   belongs_to :dashbozu_user
   has_many :service_users, class_name: 'User', foreign_key: 'dashbozu_user_id'
 
+  has_many :user_projects
+  has_many :projects, through: :user_projects
+
   def self.update_or_create_user_with_oauth(oauth)
     nickname = oauth.info.nickname || oauth.uid
     user = User.where(uid: oauth.uid, provider: oauth.provider).first
