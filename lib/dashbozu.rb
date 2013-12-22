@@ -1,4 +1,5 @@
+require 'dashbozu/plugin'
 require 'dashbozu/output'
 require 'dashbozu/input'
-require 'dashbozu/plugin'
+require 'dashbozu/input_github'
 
