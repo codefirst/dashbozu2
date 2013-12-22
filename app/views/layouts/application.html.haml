@@ -29,6 +29,15 @@
               %li= link_to "Link 2", "/path2"
               %li= link_to "Link 3", "/path3"
 
+            - if user_signed_in?
+              %ul.nav.pull-right.dropdown
+                %li
+                  %a.dropdown-toggle(data-toggle="dropdown" role="button" href="#")
+                    = t(:button_account)
+                    %i.icon-caret-down
+                  %ul.dropdown-menu.account-menu
+                    %li= link_to t(:button_sign_out), destroy_user_session_path, method: :delete, class: 'icon-signout'
+
     .container-fluid
       = bootstrap_flash
 
