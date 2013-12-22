@@ -15,7 +15,7 @@ module Dashbozu
       repos_name = p['repository']['name']
       repos_owner = p['repository']['owner_name']
       [Activity.new(
-        project: project.id,
+        project_id: project.id,
         title: "#{p['status_message']}",
         body: p['message'],
         url: "https://travis-ci.org/#{repos_owner}/#{repos_name}/builds/#{p["id"]}",
