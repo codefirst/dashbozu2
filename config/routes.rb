@@ -1,6 +1,8 @@
 Dashbozu2::Application.routes.draw do
   get "top/index"
+  get "projects/from_service/:provider(/:owner)", controller: "projects", action: "from_service", as: "projects_from_service"
   resources :projects
+  get "profile/show"
 
   root to: 'top#index'
 

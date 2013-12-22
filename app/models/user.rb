@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   devise :omniauthable
 
   belongs_to :dashbozu_user
-  has_many :users
+  has_many :service_users, class_name: 'User', foreign_key: 'dashbozu_user_id'
 
   def self.update_or_create_user_with_oauth(oauth)
     nickname = oauth.info.nickname || oauth.uid

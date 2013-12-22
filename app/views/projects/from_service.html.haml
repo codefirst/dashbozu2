@@ -1,0 +1,20 @@
+%h3 Profile
+
+%ul.nav.nav-tabs
+  %li= link_to t(:button_profile), profile_show_path
+  %li.active= link_to t(:button_repositories), projects_from_service_path('github')
+
+.row
+  .span2
+    %ul.nav.nav-list
+      %li.nav-header Accounts
+      - @owners.each do |owner|
+        %li{class: (params[:owner] == owner ? 'active' : '')}= link_to owner, user_repositories_path(params[:provider], owner: owner)
+
+  .span10
+    %table.table.table-striped
+      - @projects.each do |project|
+        %tr
+          %td= "#{project.owner}/#{project.name}"
+          %td.make-switch.project-toggle
+            =check_box_tag '','', (project.nil? and project.enabled), 'class' => 'project-toggle', 'code-nami-url' => toggle_repository_path(params[:provider], owner: project.owner, name: project.name)
