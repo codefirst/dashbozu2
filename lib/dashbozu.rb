@@ -5,4 +5,5 @@ require 'dashbozu/input'
 require 'dashbozu/input_github'
 require 'dashbozu/input_new_relic'
 require 'dashbozu/input_travis_ci'
+require 'dashbozu/input_heroku'
 
