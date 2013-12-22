@@ -33,7 +33,7 @@ class HookController < ApplicationController
 
     output_plugins = Dashbozu::Plugin.output.values
     output_plugins.each do |output_plugin|
-      output_plugin.emit(activities)
+      output_plugin.new.emit(activities)
     end
 
     render json: {status: 'ok'}
