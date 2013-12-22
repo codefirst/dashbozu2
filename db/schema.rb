@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20131222011440) do
   create_table "projects", force: true do |t|
     t.string   "provider"
     t.string   "name"
-    t.integer  "created_by"
+    t.string   "api_key",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20131222011440) do
     t.string   "nickname"
     t.string   "image"
     t.string   "token"
-    t.integer  "parent_user_id"
+    t.integer  "dashbozu_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
