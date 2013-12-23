@@ -1,9 +1,7 @@
 class User < ActiveRecord::Base
   devise :omniauthable
 
-  belongs_to :dashbozu_user
-  has_many :service_users, class_name: 'User', foreign_key: 'dashbozu_user_id'
-
+  has_many :auths
   has_many :user_projects
   has_many :projects, through: :user_projects
 

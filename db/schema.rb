@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131222062432) do
+ActiveRecord::Schema.define(version: 20131223052323) do
 
   create_table "activities", force: true do |t|
     t.string   "title"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20131222062432) do
     t.string   "icon_url"
     t.string   "status"
     t.string   "author"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "auths", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "email"
+    t.string   "image"
+    t.string   "name"
+    t.string   "nickname"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,18 +57,10 @@ ActiveRecord::Schema.define(version: 20131222062432) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "provider"
-    t.integer  "uid"
     t.string   "name"
-    t.string   "nickname"
-    t.string   "image"
-    t.string   "token"
-    t.integer  "dashbozu_user_id"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "users", ["nickname"], name: "index_users_on_nickname"
-  add_index "users", ["provider"], name: "index_users_on_provider"
 
 end
