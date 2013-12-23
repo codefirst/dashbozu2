@@ -2,7 +2,9 @@
 
 %ul.nav.nav-tabs
   %li= link_to t(:button_profile), profile_show_path
-  %li.active= link_to t(:button_repositories), projects_from_service_path('github')
+  - current_user.auths.each do |auth|
+    %li{class: "#{params[:provider] == auth.provider ? 'active' : ''}"}
+      = link_to auth.provider, projects_from_service_path(auth.provider)
 
 .row
   .span2

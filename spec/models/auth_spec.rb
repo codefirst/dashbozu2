@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Auth do
   before do
-    @oauth = OmniAuth::AuthHash.new({
+    @authhash= OmniAuth::AuthHash.new({
       "provider" => "github",
       "uid" => "1",
       "info" => {
@@ -14,12 +14,12 @@ describe Auth do
     })
   end
 
-  describe 'get or create by oauth' do
+  describe 'get or create by authhash' do
     context 'first login' do
       before do
         Auth.delete_all(provider: 'github', uid: '1')
       end
-      subject { Auth.get_or_create_by_oauth(@oauth) }
+      subject { Auth.get_or_create_by_authhash(@authhash) }
       its(:uid) { should eq '1' }
     end
     context 'second login' do
@@ -27,7 +27,7 @@ describe Auth do
         Auth.delete_all(provider: 'github', uid: '1')
         Auth.create!(provider: 'github', uid: '1')
       end
-      subject { Auth.get_or_create_by_oauth(@oauth) }
+      subject { Auth.get_or_create_by_authhash(@authhash) }
       its(:uid) { should eq '1' }
     end  end
 end

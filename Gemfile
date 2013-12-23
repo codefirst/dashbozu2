@@ -72,3 +72,4 @@ gem 'omniauth-bitbucket'
 gem 'settingslogic'
 
 gem 'octokit'
+gem 'bitbucket_rest_api'
