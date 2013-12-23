@@ -4,7 +4,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.all
+    @project = Project.with_api_key(params[:api_key]).first
   end
 
   # GET /activities/1
