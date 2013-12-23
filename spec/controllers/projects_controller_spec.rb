@@ -21,9 +21,9 @@ require 'spec_helper'
 describe ProjectsController do
 
   before do
-    @user = User.create!(name: 'name', nickname: 'nickname')
-    @github_user = User.create!(name: 'github_user', provider: 'github')
-    @user.service_users << @github_user
+    @user = User.create!
+    @github_auth = Auth.create!(name: 'github_user', provider: 'github')
+    @user.auths << @github_auth
     sign_in @user
   end
 
@@ -40,7 +40,7 @@ describe ProjectsController do
   describe "GET index" do
     it "assigns all projects as @projects" do
       project = Project.create! valid_attributes
-      project.users << @github_user
+      project.users << @user
       get :index, {}, valid_session
       assigns(:projects).should eq([project])
     end

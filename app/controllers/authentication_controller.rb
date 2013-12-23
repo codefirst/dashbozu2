@@ -15,7 +15,7 @@ class AuthenticationController < ApplicationController
         user.auths << auth
       end
       sign_in user, :event => :authentication
-      session["#{provider}_oauth"] = {token: oauth.credentials.token, secret: oauth.credentials.secret}
+      session["#{provider}_oauth_credentials"] = oauth.credentials
       redirect_to(request.env['omniauth.origin'] || projects_path)
     end
   end

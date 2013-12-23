@@ -1,10 +1,10 @@
 class ServiceClientFactory
-  def self.new_instance(user, oauth)
-    case user.provider
+  def self.new_instance(provider, oauth_credentials)
+    case provider
     when 'github'
-      return GithubServiceClient.new(user, oauth)
+      return GithubServiceClient.new(provider, oauth_credentials)
     when 'bitbucket'
-      return BitbucketServiceClient.new(user, oauth)
+      return BitbucketServiceClient.new(provider, oauth_credentials)
     end
     nil
   end

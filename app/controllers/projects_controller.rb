@@ -67,9 +67,9 @@ class ProjectsController < ApplicationController
     nickname = auth.nickname
     params[:owner] ||= nickname
     owner = params[:owner]
-    oauth = session["#{provider}_oauth"]
-    @owners = [nickname] + current_user.organizations(provider, oauth)
-    @projects = current_user.projects_from_service(provider, oauth, owner) || []
+    oauth_credentials = credentials_by(provider)
+    @owners = [nickname] + current_user.organizations(provider, oauth_credentials)
+    @projects = current_user.projects_from_service(provider, oauth_credentials, owner) || []
     @registered_projects = current_user.projects
   end
 

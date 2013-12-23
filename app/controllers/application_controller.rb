@@ -5,4 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
+  def credentials_by(provider)
+    session["#{provider}_oauth_credentials"]
+  end
 end

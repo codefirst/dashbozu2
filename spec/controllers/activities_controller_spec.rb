@@ -21,7 +21,7 @@ require 'spec_helper'
 describe ActivitiesController do
 
   before do
-    @user = User.create!(name: 'name', nickname: 'nickname')
+    @user = User.create!
     sign_in @user
   end
 

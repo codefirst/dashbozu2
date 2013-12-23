@@ -3,7 +3,7 @@ require 'spec_helper'
 describe ProfileController do
 
   before do
-    user = User.new(name: 'name', nickname: 'nickname')
+    user = User.create!
     user.save
     sign_in user
   end
