@@ -4,9 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.service_users.reduce ([]) do |projs, user|
-      projs += user.projects
-    end
+    @projects = current_user.projects
   end
 
   # GET /projects/1
@@ -65,31 +63,23 @@ class ProjectsController < ApplicationController
 
   def from_service
     provider = params[:provider]
-    service_user = current_user.service_user(provider)
-    nickname = service_user.nickname
+    auth = current_user.auth_of(provider)
+    nickname = auth.nickname
     params[:owner] ||= nickname
     owner = params[:owner]
     oauth = session["#{provider}_oauth"]
     @owners = [nickname] + current_user.organizations(provider, oauth)
     @projects = current_user.projects_from_service(provider, oauth, owner) || []
-    @associated_projects = service_user.projects
+    @registered_projects = current_user.projects
   end
 
   def toggle
     provider = params[:provider]
-    service_user = current_user.service_user(provider)
+    auth = current_user.auth_of(provider)
     condition = {provider: provider, name: params[:name]}
-    project = Project.where(condition).first
-    project ||= Project.new(condition)
-    project.users << service_user unless project.users.exists?(service_user)
-
-#    repository.enabled = !repository.enabled
-#    if repository.enabled
-#      register_hook(params[:provider], params[:owner], params[:name])
-#    else
-#      remove_hook(params[:provider], params[:owner], params[:name])
-#    end
+    project = Project.where(condition).first || Project.new(condition)
     project.save
+    project.users << current_user unless project.users.exists?(current_user)
     redirect_to projects_from_service_path(provider)
   end
 

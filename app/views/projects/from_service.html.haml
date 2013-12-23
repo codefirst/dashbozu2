@@ -19,4 +19,4 @@
           %td= project.name
           %td{style: 'width:118px'}
             .make-switch.project-toggle
-              =check_box_tag '','', @associated_projects.find {|ap| ap.provider == project.provider and ap.name == project.name }, 'class' => 'project-toggle', 'dashbozu-url' => toggle_project_path(params[:provider], name: project.name)
+              =check_box_tag '','', @registered_projects.find {|ap| ap.provider == project.provider and ap.name == project.name }, 'class' => 'project-toggle', 'dashbozu-url' => toggle_project_path(params[:provider], name: project.name)

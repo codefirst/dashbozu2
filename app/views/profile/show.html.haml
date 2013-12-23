@@ -6,13 +6,13 @@
 
 %dl.dl-horizontal
 
-- current_user.service_users.each do |user|
+- current_user.auths.each do |auth|
   %dl.dl-horizontal
     %dt= t(:label_provider)
-    %dd= user.provider
+    %dd= auth.provider
     %dt= t(:label_image)
-    %dd= image_tag user.image, width: 48, class: 'img-rounded'
+    %dd= image_tag auth.image, width: 48, class: 'img-rounded'
     %dt= t(:label_user_name)
-    %dd= user.name
+    %dd= auth.name
     %dt= t(:label_user_nickname)
-    %dd= user.nickname
+    %dd= auth.nickname
