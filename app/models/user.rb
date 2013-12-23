@@ -5,6 +5,18 @@ class User < ActiveRecord::Base
   has_many :user_projects
   has_many :projects, through: :user_projects
 
+  def connect_with(auth)
+    if auth.user and auth.user_id != self.id
+      auth.user = self
+      auth.save!
+    else
+      self.auths << auth
+    end
+    self.name = auth.name
+    self.email = auth.email
+    save!
+  end
+
   def auth_of(provider)
     self.auths.where(provider: provider).first
   end

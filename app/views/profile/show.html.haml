@@ -16,3 +16,10 @@
     %dd= auth.name
     %dt= t(:label_user_nickname)
     %dd= auth.nickname
+
+- Settings.omniauth.keys.each do |provider|
+  - unless current_user.auths.any? {|auth| auth.provider == provider}
+    = form_tag user_omniauth_authorize_path(provider), :method => 'post' do |f|
+      %button.btn.btn-primary.btn-large
+        %i.icon-user
+        = "#{t(:button_connect)} with #{provider}"

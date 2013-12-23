@@ -13,4 +13,25 @@ describe User do
     its(:name) { should == 'github_user' }
     its(:provider) { should == 'github' }
   end
+
+  describe 'connect_with' do
+    before do
+      @user1 = User.create!
+      @auth = Auth.create!(provider: 'github', name: 'name', email: 'test@example.com')
+      @user1.auths << @auth
+      @user2 = User.create!
+      @user2.connect_with(@auth)
+    end
+    context 'user1' do
+      subject { @user1 }
+      its(:auths) { should have(0).items }
+    end
+    context 'user2' do
+      subject { @user2 }
+      its(:name) { should eq 'name' }
+      its(:email) { should eq 'test@example.com' }
+      its(:auths) { should include(@auth) }
+      its(:auths) { should have(1).items }
+    end
+  end
 end

@@ -5,17 +5,14 @@ class AuthenticationController < ApplicationController
     redirect_to root_path
   end
 
-  ['github', 'bitbucket'].each do |provider|
+  Settings.omniauth.keys.each do |provider|
     define_method provider do
-      oauth = request.env['omniauth.auth']
-      auth = Auth.get_or_create_by_oauth(oauth)
-      user = auth.user
-      unless user
-        user = User.create!
-        user.auths << auth
-      end
+      authhash = request.env['omniauth.auth']
+      auth = Auth.get_or_create_by_authhash(authhash)
+      user = current_user || User.new
+      user.connect_with(auth)
       sign_in user, :event => :authentication
-      session["#{provider}_oauth_credentials"] = oauth.credentials
+      session["#{provider}_oauth_credentials"] = authhash.credentials
       redirect_to(request.env['omniauth.origin'] || projects_path)
     end
   end
