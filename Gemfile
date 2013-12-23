@@ -8,6 +8,7 @@ gem 'rails', '4.0.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'haml-rails'
+gem 'gravatar_image_tag'
 
 group :development, :test do
   gem 'sqlite3'

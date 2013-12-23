@@ -53,6 +53,7 @@ GEM
     execjs (2.0.2)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    gravatar_image_tag (1.2.0)
     haml (4.1.0.alpha.2)
       tilt
     haml-rails (0.5.3)
@@ -212,6 +213,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   erb2haml
+  gravatar_image_tag
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails

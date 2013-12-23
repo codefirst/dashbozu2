@@ -159,6 +159,7 @@ PAYLOAD
     context 'first' do
       subject { @activities[0] }
       its (:source) { should eq 'github' }
+      its (:icon_url) { should =~ /gravatar/ }
     end
   end
 end

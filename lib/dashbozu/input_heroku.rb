@@ -12,6 +12,7 @@ module Dashbozu
         title: "#{params[:app]} - #{params[:head]}",
         body: params[:git_log],
         url: params[:url],
+        icon_url: GravatarImageTag.gravatar_url(params[:user]),
         author: params[:user],
         source: 'heroku'
       )]

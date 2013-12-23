@@ -69,6 +69,7 @@ PAYLOAD
       its (:body) { should eq 'the commit message' }
       its (:title) { should eq 'Passed' }
       its (:url) { should eq 'https://travis-ci.org/svenfuchs/minimal/builds/1' }
+      its (:icon_url) { should =~ /gravatar/ }
       its (:status) { should eq 'success' }
       its (:author) { should eq 'Sven Fuchs' }
     end

@@ -17,6 +17,7 @@ module Dashbozu
           body: c['message'],
           url: c['url'],
           author: c['author']['username'],
+          icon_url: GravatarImageTag.gravatar_url(c['author']['email']),
           source: 'github'
        )
       end
