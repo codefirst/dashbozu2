@@ -1,4 +1,8 @@
 class BitbucketAuth  < Auth
+  def self.provider_name
+    'Bitbucket'
+  end
+
   def self.get_or_create_by_authhash(authhash)
     condition = {provider: authhash.provider, uid: authhash.uid}
     auth = self.where(condition).first || self.new(condition)

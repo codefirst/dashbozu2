@@ -1,4 +1,8 @@
 class GithubAuth  < Auth
+  def self.provider_name
+    'GitHub'
+  end
+
   def self.get_or_create_by_authhash(authhash)
     condition = {provider: authhash.provider, uid: authhash.uid}
     auth = self.where(condition).first || self.new(condition)
