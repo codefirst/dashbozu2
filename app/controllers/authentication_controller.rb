@@ -10,6 +10,7 @@ class AuthenticationController < ApplicationController
       authhash = request.env['omniauth.auth']
       auth = Auth.get_or_create_by_authhash(authhash)
       user = current_user || User.new
+      user = auth.user if not request.env['omniauth.params']['connect'] and auth.user
       user.connect_with(auth)
       sign_in user, :event => :authentication
       session["#{provider}_oauth_credentials"] = authhash.credentials
