@@ -1,4 +1,5 @@
 class ActivitiesController < ApplicationController
+  PER_PAGE = 10
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   # GET /activities
@@ -6,14 +7,14 @@ class ActivitiesController < ApplicationController
   def index
     project = Project.with_api_key(params[:api_key]).first
     if project
-      @activities = project.activities.order('created_at desc')
+      @activities = project.activities.page(params[:page]).per(PER_PAGE).order('created_at desc')
     else
       render text: 'Project not found', status: 404
     end
   end
 
   def all
-    @activities = Activity.joined_projects(current_user).order('created_at desc')
+    @activities = Activity.joined_projects(current_user).page(params[:page]).per(PER_PAGE).order('created_at desc')
     render template: 'activities/index'
   end
 

@@ -1,4 +1,5 @@
 %h3 Listing activities
+= paginate(@activities)
 .activity-list
   = render partial: 'activity', collection: @activities
 

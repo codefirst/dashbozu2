@@ -38,9 +38,6 @@ gem "less-rails"
 gem 'therubyracer', '0.10.2', :platform => :ruby
 gem "twitter-bootstrap-rails"
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
@@ -73,3 +70,5 @@ gem 'settingslogic'
 
 gem 'octokit'
 gem 'bitbucket_rest_api'
+
+gem 'kaminari'
