@@ -22,7 +22,7 @@
     background-color: #fcf8e3;
   }
 
-.activity{class: 'status-' + activity.status}
+.activity{class: activity.status ? 'status-' + activity.status : ''}
   .activity-right
     .activity-title
       = image_tag activity.icon_url if activity.icon_url
