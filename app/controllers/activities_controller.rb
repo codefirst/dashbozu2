@@ -8,9 +8,7 @@ class ActivitiesController < ApplicationController
   end
 
   def all
-    user_projects = UserProject.joins(:project).where('user_projects.user_id' => current_user.id)
-    project_ids = user_projects.pluck(:project_id)
-    @activities = Activity.where(project_id: project_ids).includes(:project).order('created_at')
+    @activities = Activity.joined_projects(current_user).order('created_at')
   end
 
   # GET /activities/1
