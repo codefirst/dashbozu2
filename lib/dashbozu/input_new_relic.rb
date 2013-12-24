@@ -16,7 +16,7 @@ module Dashbozu
         body: a['long_description'],
         url: a['alert_url'],
         author: a['account_name'],
-        status: 'alert',
+        status: 'error',
         source: 'new_relic'
       )]
     end

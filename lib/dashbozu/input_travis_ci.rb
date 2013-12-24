@@ -18,7 +18,7 @@ module Dashbozu
         url: "https://travis-ci.org/#{repos_owner}/#{repos_name}/builds/#{p["id"]}",
         icon_url: GravatarImageTag.gravatar_url(p['author_email']),
         author: p['author_name'],
-        status: p['status_message'] == 'Fixed' || p['status_message'] == 'Passed' ? 'success' : 'failure',
+        status: p['status_message'] == 'Fixed' || p['status_message'] == 'Passed' ? 'success' : 'error',
         source: 'travis_ci'
       )]
     end
