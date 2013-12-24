@@ -1,0 +1,33 @@
+%h1 Listing activities
+
+%table
+  %tr
+    %th Title
+    %th Body
+    %th Source
+    %th Project
+    %th Url
+    %th Icon url
+    %th Status
+    %th Author
+    %th
+    %th
+    %th
+
+  - @activities.each do |activity|
+    %tr
+      %td= activity.title
+      %td= activity.body
+      %td= activity.source
+      %td= activity.project.name
+      %td= activity.url
+      %td= activity.icon_url
+      %td= activity.status
+      %td= activity.author
+      %td= link_to 'Show', activity
+      %td= link_to 'Edit', edit_activity_path(activity)
+      %td= link_to 'Destroy', activity, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Activity', new_activity_path

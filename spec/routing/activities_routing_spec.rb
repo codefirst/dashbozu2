@@ -4,7 +4,7 @@ describe ActivitiesController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/activities").should route_to("activities#index")
+      get("/activities").should route_to("activities#all")
     end
 
     it "routes to #new" do
