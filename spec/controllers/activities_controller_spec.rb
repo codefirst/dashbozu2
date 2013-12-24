@@ -37,12 +37,12 @@ describe ActivitiesController do
   let(:valid_session) { {} }
 
   describe "GET index" do
-    it "assigns all activities as @activities" do
+    it "assigns activities in a project as @activities" do
       activity = Activity.create! valid_attributes
       project = Project.create!
       project.activities << activity
       get :index, {api_key: project.api_key}, valid_session
-      assigns(:project).activities.should eq([activity])
+      assigns(:activities).should eq([activity])
     end
   end
 
