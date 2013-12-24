@@ -6,14 +6,14 @@ class ActivitiesController < ApplicationController
   def index
     project = Project.with_api_key(params[:api_key]).first
     if project
-      @activities = project.activities
+      @activities = project.activities.order('created_at desc')
     else
       render text: 'Project not found', status: 404
     end
   end
 
   def all
-    @activities = Activity.joined_projects(current_user).order('created_at')
+    @activities = Activity.joined_projects(current_user).order('created_at desc')
     render template: 'activities/index'
   end
 
