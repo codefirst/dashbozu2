@@ -8,6 +8,17 @@ class Project < ActiveRecord::Base
 
   scope :with_api_key, lambda {|api_key| where(api_key: api_key) }
 
+  def create_association(user)
+    condition = {project_id: self.id, user_id: user.id}
+    return unless UserProject.where(condition).empty?
+    UserProject.create!(condition)
+  end
+
+  def delete_association(user)
+    condition = {project_id: self.id, user_id: user.id}
+    UserProject.delete_all(condition)
+  end
+
   private
   def generate_api_key
     self.api_key = SecureRandom.uuid.split('-').join

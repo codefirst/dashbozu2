@@ -75,11 +75,17 @@ class ProjectsController < ApplicationController
 
   def toggle
     provider = params[:provider]
-    auth = current_user.auth_of(provider)
+
     condition = {provider: provider, name: params[:name]}
     project = Project.where(condition).first || Project.new(condition)
     project.save
-    project.users << current_user unless project.users.exists?(current_user)
+
+    if (not params[:state].blank?) and (params[:state].downcase == 'true')
+      project.create_association(current_user)
+    else
+      project.delete_association(current_user)
+    end
+
     redirect_to projects_from_service_path(provider)
   end
 
