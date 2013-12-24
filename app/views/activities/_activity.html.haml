@@ -1,6 +1,5 @@
 :css
   .activity-right {
-    background-image: url(#{image_path activity.source+'.png'});
     background-repeat: no-repeat;
     padding-left: 80px;
     background-size: 70px auto;
@@ -23,7 +22,7 @@
   }
 
 .activity{class: activity.status ? 'status-' + activity.status : ''}
-  .activity-right
+  .activity-right{style: "background-image: url(#{image_path activity.source+'.png'})"}
     .activity-title
       = image_tag activity.icon_url if activity.icon_url
       = link_to activity.title, activity.url
