@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
+  SHOW_PROJECTS_PER_PAGE = 20
+
   # GET /projects
   # GET /projects.json
   def index
@@ -68,8 +70,11 @@ class ProjectsController < ApplicationController
     params[:owner] ||= nickname
     owner = params[:owner]
     oauth_credentials = credentials_by(provider)
+    @per_page = SHOW_PROJECTS_PER_PAGE
+    @page = (params[:page] || '1').to_i
     @owners = [nickname] + current_user.organizations(provider, oauth_credentials)
-    @projects = current_user.projects_from_service(provider, oauth_credentials, owner) || []
+    @projects = current_user.projects_from_service(provider, oauth_credentials, owner, @per_page, @page) || []
+    @project_count = current_user.project_count(provider, oauth_credentials, owner) || 0
     @registered_projects = current_user.projects
   end
 

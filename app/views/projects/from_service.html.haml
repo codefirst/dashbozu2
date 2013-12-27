@@ -15,6 +15,7 @@
         %li{class: (params[:owner] == owner ? 'active' : '')}= link_to owner, projects_from_service_path(params[:provider], owner: owner)
 
   .span10
+    = paginate_projects(params[:provider], params[:owner], @per_page, @page, @project_count)
     %table.table.table-striped
       - @projects.each do |project|
         %tr

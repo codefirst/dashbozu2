@@ -7,7 +7,7 @@ class BitbucketServiceClient
     []
   end
 
-  def projects(owner)
+  def projects(owner, per_page = nil, page = nil)
     bitbucket = BitBucket.new(oauth_token: @oauth_credentials[:token],
                               oauth_secret:  @oauth_credentials[:secret],
                               client_id: Settings.omniauth.bitbucket.key,
