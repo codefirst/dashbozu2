@@ -49,7 +49,9 @@ describe ActivitiesController do
   describe "GET show" do
     it "assigns the requested activity as @activity" do
       activity = Activity.create! valid_attributes
-      get :show, {:id => activity.to_param}, valid_session
+      project = Project.create
+      project.activities << activity
+      get :show, {:id => activity.encrypted_identifier}, valid_session
       assigns(:activity).should eq(activity)
     end
   end

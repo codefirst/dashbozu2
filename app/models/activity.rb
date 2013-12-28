@@ -12,8 +12,8 @@ class Activity < ActiveRecord::Base
   private
   def generate_identifier
     if self.project
-      self.identifier = self.project.api_key + '-' + self.id.to_s
-      self.encrypted_identifier = Digest::SHA1.hexdigest(self.identifier)
+      identifier = self.project.api_key + '-' + self.id.to_s
+      self.encrypted_identifier = Digest::SHA1.hexdigest(identifier)
     end
   end
 end

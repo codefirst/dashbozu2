@@ -8,7 +8,6 @@ describe Activity do
       project.activities << @activity
     end
     subject { @activity }
-    its(:identifier) { should_not be_nil }
     its(:encrypted_identifier) { should_not be_nil }
   end
 end

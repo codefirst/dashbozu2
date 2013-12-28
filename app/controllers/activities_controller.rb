@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   PER_PAGE = 10
-  before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  before_action :set_activity, only: [:edit, :update, :destroy]
 
   # GET /activities
   # GET /activities.json
@@ -18,10 +18,20 @@ class ActivitiesController < ApplicationController
     render template: 'activities/index'
   end
 
-  # GET /activities/1
-  # GET /activities/1.json
   def show
+    @activity = Activity.where(encrypted_identifier: params[:id]).first
+    render text: 'Activity not found', status: 404 unless @activity
   end
+
+  def embed
+    @activity = Activity.where(encrypted_identifier: params[:id]).first
+    if @activity
+      render layout: false, template: 'activities/show'
+    else
+      render text: 'Activity not found', status: 404
+    end
+  end
+
 
   # GET /activities/new
   def new
