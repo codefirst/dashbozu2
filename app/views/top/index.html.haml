@@ -15,4 +15,13 @@
             %button.btn.btn-primary.btn-large
               %i.icon-signin
               = "#{t(:button_sign_in)} with GitHub"
+  .row-fluid{style: 'margin-top: 30px;'}
+    .content
+      .text-center
+        .span12
+          %h4 Getting start with Bitbucket account
+          = form_tag user_omniauth_authorize_path(:bitbucket), :method => 'post' do |f|
+            %button.btn.btn-primary.btn-large
+              %i.icon-signin
+              = "#{t(:button_sign_in)} with Bitbucket"
 
