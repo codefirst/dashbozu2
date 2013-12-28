@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131223052323) do
+ActiveRecord::Schema.define(version: 20131228124842) do
 
   create_table "activities", force: true do |t|
     t.string   "title"
@@ -24,7 +24,12 @@ ActiveRecord::Schema.define(version: 20131223052323) do
     t.string   "author"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "identifier"
+    t.string   "encrypted_identifier"
   end
+
+  add_index "activities", ["encrypted_identifier"], name: "index_activities_on_encrypted_identifier"
+  add_index "activities", ["identifier"], name: "index_activities_on_identifier"
 
   create_table "auths", force: true do |t|
     t.string   "provider"
