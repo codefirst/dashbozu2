@@ -70,6 +70,10 @@ class ProjectsController < ApplicationController
     params[:owner] ||= nickname
     owner = params[:owner]
     oauth_credentials = credentials_by(provider)
+    unless oauth_credentials
+      redirect_to user_omniauth_authorize_path(provider: provider, connect: true)
+      return
+    end
     @per_page = SHOW_PROJECTS_PER_PAGE
     @page = (params[:page] || '1').to_i
     @owners = [nickname] + current_user.organizations(provider, oauth_credentials)
