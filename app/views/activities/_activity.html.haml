@@ -34,5 +34,5 @@
     .activity-body
       = activity.body
     .activity-created
-      = link_to activity.created_at, activity_path(id: activity.encrypted_identifier)
+      = link_to strftime(activity.created_at), activity_path(id: activity.encrypted_identifier)
 
