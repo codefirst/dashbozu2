@@ -35,7 +35,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem "less-rails"
-gem 'therubyracer', '0.10.2', :platform => :ruby
+gem 'therubyracer', :platform => :ruby
 gem "twitter-bootstrap-rails"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
