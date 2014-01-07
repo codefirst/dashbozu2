@@ -25,6 +25,9 @@ class HookController < ApplicationController
       Rails.logger.info activity.to_json
       activity.save!
       activity.save! # generate encrypted identifier
+
+      activity.html_url = activity_url(activity.encrypted_identifier)
+      activity.embed_url = activity_embed_url(activity.encrypted_identifier)
     end
 
     output_plugins = Dashbozu::Plugin.output.values

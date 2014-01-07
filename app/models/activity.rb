@@ -1,4 +1,6 @@
 class Activity < ActiveRecord::Base
+  attr_accessor :html_url, :embed_url
+
   belongs_to :project
 
   before_save :generate_identifier

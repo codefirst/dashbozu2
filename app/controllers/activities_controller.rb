@@ -1,4 +1,7 @@
 class ActivitiesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show, :embed]
+  skip_before_filter :verify_authenticity_token, only: [:show, :embed]
+
   PER_PAGE = 10
   before_action :set_activity, only: [:edit, :update, :destroy]
 
