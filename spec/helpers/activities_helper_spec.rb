@@ -11,5 +11,9 @@ require 'spec_helper'
 #   end
 # end
 describe ActivitiesHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'activity_source_image_url' do
+    before { @activity = Activity.new(source: 'github') }
+    subject { activity_source_image_url(@activity) }
+    it { should eq '/images/github.png' }
+  end
 end

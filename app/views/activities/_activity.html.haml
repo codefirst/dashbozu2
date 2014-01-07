@@ -25,7 +25,7 @@
   }
 
 .activity{class: activity.status ? 'status-' + activity.status : ''}
-  .activity-right{style: "background-image: url(#{image_url activity.source+'.png'})"}
+  .activity-right{style: "background-image: url(#{activity_source_image_url(activity)})"}
     .activity-title
       = image_tag activity.icon_url if activity.icon_url
       = link_to activity.title, activity.url
