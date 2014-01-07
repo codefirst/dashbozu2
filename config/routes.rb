@@ -2,9 +2,9 @@ Dashbozu2::Application.routes.draw do
   get "top/index"
   root to: 'top#index'
 
-  get "activities", controller: "activities", action: "all", as: "all_activities"
+  get "activities", controller: "activities", action: "index", as: "activities"
+  get "activities/:id", controller: "activities", action: "show", as: "activity"
   get "activities/:id/embed", controller: "activities", action: "embed", as: "activity_embed"
-  resources :activities
 
   get "projects/from_service/:provider(/:owner)", controller: "projects", action: "from_service", as: "projects_from_service"
   get "projects/:api_key/activities", controller: "activities", action: "index", as: "project_activities"
