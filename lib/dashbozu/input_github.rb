@@ -13,6 +13,8 @@ module Dashbozu
         return hook_push(project, json)
       elsif json['issue']
         return hook_issue(project, json)
+      elsif json['pull_request']
+        return hook_pull_request(project, json)
       end
     end
 
@@ -40,6 +42,20 @@ module Dashbozu
         title: issue['title'],
         body: issue['body'],
         url: issue['html_url'],
+        author: user['login'],
+        icon_url: user['avatar_url'],
+        source: 'github'
+      )]
+    end
+
+    def hook_pull_request(project, json)
+      pull_request = json['pull_request']
+      user = pull_request['user']
+      [Activity.new(
+        project_id: project.id,
+        title: pull_request['title'],
+        body: pull_request['body'],
+        url: pull_request['html_url'],
         author: user['login'],
         icon_url: user['avatar_url'],
         source: 'github'
