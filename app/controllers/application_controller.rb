@@ -8,4 +8,11 @@ class ApplicationController < ActionController::Base
   def credentials_by(provider)
     session["#{provider}_oauth_credentials"]
   end
+
+  def logged_provider
+    Settings.omniauth.keys.each do |provider|
+      return provider if session.has_key?("#{provider}_oauth_credentials")
+    end
+    nil
+  end
 end

@@ -5,6 +5,10 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = current_user.projects
+    if @projects.empty?
+      redirect_to action: :from_service, provider: logged_provider
+      return
+    end
   end
 
   def from_service
