@@ -6,10 +6,10 @@ Dashbozu2::Application.routes.draw do
   get "activities/:id", controller: "activities", action: "show", as: "activity"
   get "activities/:id/embed", controller: "activities", action: "embed", as: "activity_embed"
 
+  get "projects", controller: "projects", action: "index", as: "projects"
   get "projects/from_service/:provider(/:owner)", controller: "projects", action: "from_service", as: "projects_from_service"
   get "projects/:api_key/activities", controller: "activities", action: "index", as: "project_activities"
   post "projects/toggle/:provider/*name", controller: "projects", action: "toggle", as: "toggle_project"
-  resources :projects
 
   get "profile/show"
 
