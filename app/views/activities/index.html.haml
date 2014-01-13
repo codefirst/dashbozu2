@@ -9,7 +9,8 @@
     %li.active
       = @project.name
 
-= paginate(@activities)
 .activity-list
   = render partial: 'activity', collection: @activities
+
+= paginate(@activities)
 
