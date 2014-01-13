@@ -42,7 +42,7 @@ describe ActivitiesController do
       project = Project.create!
       project.activities << activity
       get :index, {api_key: project.api_key}, valid_session
-      assigns(:activities).should eq([])
+      assigns(:activities).should eq([activity])
     end
   end
 

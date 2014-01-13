@@ -2,7 +2,7 @@ Dashbozu2::Application.routes.draw do
   get "top/index"
   root to: 'top#index'
 
-  get "activities", controller: "activities", action: "index", as: "activities"
+  get "activities", controller: "activities", action: "all", as: "activities"
   get "activities/:id", controller: "activities", action: "show", as: "activity"
   get "activities/:id/embed", controller: "activities", action: "embed", as: "activity_embed"
 

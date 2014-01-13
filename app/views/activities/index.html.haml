@@ -1,4 +1,14 @@
-%h3 Listing activities
+%ul.breadcrumb
+  - unless @project
+    %li.active
+      = 'Activities'
+  - else
+    %li
+      = link_to 'Projects', projects_path
+      %span.divider &gt;
+    %li.active
+      = @project.name
+
 = paginate(@activities)
 .activity-list
   = render partial: 'activity', collection: @activities

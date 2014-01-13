@@ -1,3 +1,12 @@
+%ul.breadcrumb
+  %li.active
+    = link_to 'Projects', projects_path
+    %span.divider &gt;
+  %li
+    = link_to @activity.project.name, project_activities_path(@activity.project.api_key)
+    %span.divider &gt;
+  %li.active= @activity.title
+
 = render partial: 'activity', collection: [@activity]
 
 = content_for :opengraph do
