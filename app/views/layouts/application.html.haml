@@ -19,9 +19,16 @@
     .navbar.navbar-fluid-top.navbar-inverse
       .navbar-inner
         .container-fluid
+          %a.btn.btn-navbar(data-toggle='collapse' data-target='.nav-collapse')
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
           %a.brand(href=root_path)=image_tag "white_logo.png"
-          .container
+          .container.nav-collapse.collapse
             - if user_signed_in?
+              %ul.nav
+                %li= link_to 'Projects', projects_path
+                %li= link_to 'Activities', activities_path
               %ul.nav.pull-right.dropdown
                 %li
                   %a.dropdown-toggle(data-toggle="dropdown" role="button" href="#")
