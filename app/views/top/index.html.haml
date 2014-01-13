@@ -10,18 +10,17 @@
     .content
       .text-center
         .span12
-          %h4 Getting start with GitHub account
-          = form_tag user_omniauth_authorize_path(:github), :method => 'post' do |f|
-            %button.btn.btn-primary.btn-large
-              %i.icon-signin
-              = "#{t(:button_sign_in)} with GitHub"
-  .row-fluid{style: 'margin-top: 30px;'}
+          %h4 Getting start with GitHub/Bitbucket account
+  .row-fluid
     .content
-      .text-center
-        .span12
-          %h4 Getting start with Bitbucket account
-          = form_tag user_omniauth_authorize_path(:bitbucket), :method => 'post' do |f|
-            %button.btn.btn-primary.btn-large
-              %i.icon-signin
-              = "#{t(:button_sign_in)} with Bitbucket"
+      .span6.text-right
+        = form_tag user_omniauth_authorize_path(:github), :method => 'post' do |f|
+          %button.btn.btn-primary.btn-large
+            %i.icon-signin
+            = "#{t(:button_sign_in)} with GitHub"
+      .span6.text-left
+        = form_tag user_omniauth_authorize_path(:bitbucket), :method => 'post' do |f|
+          %button.btn.btn-primary.btn-large
+            %i.icon-signin
+            = "#{t(:button_sign_in)} with Bitbucket"
 
