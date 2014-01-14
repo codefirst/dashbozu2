@@ -22,7 +22,7 @@ describe 'Dashbozu::InputHeroku' do
       subject { @activities[0] }
       its (:source) { should eq 'heroku' }
       its (:body) { should eq 'log of commits between this deploy and the last' }
-      its (:title) { should eq 'the app name - 1e198a0' }
+      its (:title) { should eq '[Deploy] the app name - 1e198a0' }
       its (:url) { should eq 'http://myapp.heroku.com' }
       its (:icon_url) { should =~ /gravatar/ }
       its (:author) { should eq 'user@example.com' }

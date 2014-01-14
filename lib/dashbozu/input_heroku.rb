@@ -9,7 +9,7 @@ module Dashbozu
     def hook(project, params)
       [Activity.new(
         project_id: project.id,
-        title: "#{params[:app]} - #{params[:head]}",
+        title: "[Deploy] #{params[:app]} - #{params[:head]}",
         body: params[:git_log],
         url: params[:url],
         icon_url: GravatarImageTag.gravatar_url(params[:user]),

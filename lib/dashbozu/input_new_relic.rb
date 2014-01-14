@@ -12,7 +12,7 @@ module Dashbozu
       a = MultiJson.load(payload_body)
       [Activity.new(
         project_id: project.id,
-        title: "#{a['application_name']}: #{a['message']}",
+        title: "[Alert] #{a['application_name']} - #{a['message']}",
         body: a['long_description'],
         url: a['alert_url'],
         author: a['account_name'],

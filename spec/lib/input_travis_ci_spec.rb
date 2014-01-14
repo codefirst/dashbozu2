@@ -67,7 +67,7 @@ PAYLOAD
       subject { @activities[0] }
       its (:source) { should eq 'travis_ci' }
       its (:body) { should eq 'the commit message' }
-      its (:title) { should eq 'Passed' }
+      its (:title) { should eq '[Build] minimal - #1 Passed' }
       its (:url) { should eq 'https://travis-ci.org/svenfuchs/minimal/builds/1' }
       its (:icon_url) { should =~ /gravatar/ }
       its (:status) { should eq 'success' }

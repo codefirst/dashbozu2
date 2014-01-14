@@ -13,7 +13,7 @@ module Dashbozu
       repos_owner = p['repository']['owner_name']
       [Activity.new(
         project_id: project.id,
-        title: "#{p['status_message']}",
+        title: "[Build] #{repos_name} - ##{p['number']} #{p['status_message']}",
         body: p['message'],
         url: "https://travis-ci.org/#{repos_owner}/#{repos_name}/builds/#{p["id"]}",
         icon_url: GravatarImageTag.gravatar_url(p['author_email']),

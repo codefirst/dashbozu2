@@ -27,7 +27,7 @@ PAYLOAD
       subject { @activities[0] }
       its (:source) { should eq 'new_relic' }
       its (:body) { should eq 'Long description about alert' }
-      its (:title) { should eq 'Application name: Message about alert' }
+      its (:title) { should eq '[Alert] Application name - Message about alert' }
       its (:url) { should eq 'http://PATH_TO_NEW_RELIC' }
       its (:status) { should eq 'error' }
       its (:author) { should eq 'Account name' }

@@ -24,7 +24,7 @@ module Dashbozu
       json['commits'].map do |c|
         Activity.new(
           project_id: project.id,
-          title: "#{repos_name} / #{c['id'][0..8]}",
+          title: "[Commit] #{repos_name} - #{c['id'][0..8]}",
           body: c['message'],
           url: c['url'],
           author: c['author']['username'],
@@ -39,7 +39,7 @@ module Dashbozu
       user = issue['user']
       [Activity.new(
         project_id: project.id,
-        title: issue['title'],
+        title: "[Issue] #{issue['html_url'].split('/')[4]} - ##{issue['number']} #{json['action']}: #{issue['title']}",
         body: issue['body'],
         url: issue['html_url'],
         author: user['login'],
@@ -53,7 +53,7 @@ module Dashbozu
       user = pull_request['user']
       [Activity.new(
         project_id: project.id,
-        title: pull_request['title'],
+        title: "[Pull Request] #{pull_request['head']['repo']['name']} - ##{pull_request['number']} #{json['action']}: #{pull_request['title']}",
         body: pull_request['body'],
         url: pull_request['html_url'],
         author: user['login'],
