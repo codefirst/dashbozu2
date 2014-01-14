@@ -159,6 +159,10 @@ PAYLOAD
     context 'first' do
       subject { @activities[0] }
       its (:source) { should eq 'github' }
+      its (:body) { should eq "Test" }
+      its (:title) { should eq 'testing / c441029cf' }
+      its (:url) { should eq 'https://github.com/octokitty/testing/commit/c441029cf673f84c8b7db52d0a5944ee5c52ff89' }
+      its (:author) { should eq 'octokitty' }
       its (:icon_url) { should =~ /gravatar/ }
     end
   end
