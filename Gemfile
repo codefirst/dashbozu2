@@ -20,7 +20,7 @@ group :production do
   gem 'newrelic_rpm'
 end
 
-gem 'thin'
+gem 'puma'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
