@@ -30,10 +30,11 @@ module Dashbozu
     end
 
     def extract_email(raw_author)
+      return '' if raw_author.blank?
       extracted = raw_author.scan(/.*<(.*)>/)
-      '' if extracted.empty?
+      return '' if extracted.empty?
       last = extracted.last
-      '' if last.empty?
+      return '' if last.empty?
       last.last
     end
   end
