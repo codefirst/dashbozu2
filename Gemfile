@@ -66,3 +66,5 @@ gem 'octokit'
 gem 'bitbucket_rest_api'
 
 gem 'kaminari'
+
+gem 'airbrake'
