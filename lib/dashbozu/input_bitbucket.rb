@@ -21,7 +21,7 @@ module Dashbozu
           project_id: project.id,
           title: "[Commit] #{repos_name} - #{c['node'][0..8]}",
           body: c['message'],
-          url: url,
+          url: "#{url}commits/#{c['raw_node']}",
           author: c['author'],
           icon_url: GravatarImageTag.gravatar_url(extract_email(c['raw_author'])),
           source: 'bitbucket'

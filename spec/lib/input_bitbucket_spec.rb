@@ -49,7 +49,7 @@ PAYLOAD
     its(:project_id) { should eq @project.id }
     its(:title) { should eq '[Commit] Project X - 620ade186' }
     its(:body) { should eq "Added some more things to somefile.py" }
-    its(:url) { should eq 'https://bitbucket.org/marcus/project-x/' }
+    its(:url) { should eq 'https://bitbucket.org/marcus/project-x/commits/620ade18607ac42d872b568bb92acaa9a28620e9' }
     its(:author) { should eq 'marcus' }
     its(:icon_url) { should =~ /gravatar/ }
     its(:source) { should eq 'bitbucket' }
