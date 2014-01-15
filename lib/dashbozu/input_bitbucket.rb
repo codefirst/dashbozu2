@@ -7,12 +7,11 @@ module Dashbozu
     end
 
     def hook(project, params)
-      payload_body = params[:payload]
-      json = MultiJson.load(payload_body)
-      if json['commits']
+      if params[:payload]
+        json = MultiJson.load(params[:payload])
         return hook_push(project, json)
-      elsif json['pullrequest_created']
-        return hook_pullrequest_created(project, json)
+      elsif params['pullrequest_created']
+        return hook_pullrequest_created(project, params)
       end
       []
     end

@@ -119,7 +119,7 @@ PAYLOAD
 }
 PAYLOAD
       @project = Project.new
-      @activities = Dashbozu::InputBitbucket.new.hook(@project, payload: @payload)
+      @activities = Dashbozu::InputBitbucket.new.hook(@project, MultiJson.load(@payload))
     }
     subject { @activities.first }
     its(:project_id) { should eq @project.id }
