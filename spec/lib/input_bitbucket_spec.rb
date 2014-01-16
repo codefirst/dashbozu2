@@ -60,7 +60,6 @@ PAYLOAD
     it { should eq 'marcus@somedomain.com' }
   end
 
-
   describe 'pullrequest_created' do
     before {
 @payload = <<PAYLOAD
@@ -129,5 +128,15 @@ PAYLOAD
     its(:author) { should eq 'evzijst' }
     its(:icon_url) { should eq 'https://bitbucket-staging-assetroot.s3.amazonaws.com/c/photos/2013/Oct/28/evzijst-avatar-3454044670-3_avatar.png' }
     its(:source) { should eq 'bitbucket' }
+  end
+
+  describe 'extract_full_repo_name' do
+    subject { Dashbozu::InputBitbucket.new.send(:extract_full_repo_name, '"https://bitbucket.org/evzijst/bitbucket2/pull-request/24/_/diff#comment-13"') }
+    it { should eq 'evzijst/bitbucket2' }
+  end
+
+  describe 'extract_pullrequest_id' do
+    subject { Dashbozu::InputBitbucket.new.send(:extract_pullrequest_id, '"https://bitbucket.org/evzijst/bitbucket2/pull-request/24/_/diff#comment-13"') }
+    it { should eq '24' }
   end
 end
