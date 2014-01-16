@@ -58,7 +58,7 @@ module Dashbozu
     def hook_pullrequest_comment(project, json, action)
       pullreq = json["pullrequest_comment_#{action}"]
       url = pullreq['links']['html']['href']
-      full_repo_name = extract_full_repo_name(url)
+      repo_full_name = extract_full_repo_name(url)
       pullrequest_id = extract_pullrequest_id(url)
       [Activity.new(
         project_id: project.id,
