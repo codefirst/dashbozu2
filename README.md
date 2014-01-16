@@ -87,3 +87,10 @@ Set below URL to "WebHook".
 
     http://your.dashbozu.host/hook/your-api-key/new_relic
 
+### Errbit
+
+Access to App Edit page.
+Add WEBHOOK to NOTIFICATION SERVICE, and set below URL to URL.
+
+    http://your.dashbozu.host/hook/your-api-key/errbit
+
