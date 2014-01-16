@@ -10,8 +10,11 @@ module Dashbozu
       if params[:payload]
         json = MultiJson.load(params[:payload])
         return hook_push(project, json)
-      elsif params['pullrequest_created']
-        return hook_pullrequest_created(project, params)
+      end
+      ['created', 'merged', 'declined', 'updated', 'comment_created', 'comment_deleted', 'comment_updated'].each do |action|
+        if params["pullrequest_#{action}"]
+          return hook_pullrequest(project, params, action)
+        end
       end
       []
     end
@@ -42,12 +45,12 @@ module Dashbozu
       last.last
     end
 
-    def hook_pullrequest_created(project, json)
-      pullreq = json['pullrequest_created']
+    def hook_pullrequest(project, json, action)
+      pullreq = json["pullrequest_#{action}"]
       repo_full_name = pullreq['destination']['repository']['full_name']
       [Activity.new(
         project_id: project.id,
-        title: "[Pull Request] #{repo_full_name} - ##{pullreq['id']} created: #{pullreq['title']}",
+        title: "[Pull Request] #{repo_full_name} - ##{pullreq['id']} #{action}: #{pullreq['title']}",
         body: pullreq['description'],
         url: "https://bitbucket.org/#{repo_full_name}/pull-request/#{pullreq['id']}",
         author: pullreq['author']['username'],
