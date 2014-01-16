@@ -44,11 +44,13 @@ module Dashbozu
     def hook_pullrequest(project, json, action)
       pullreq = json["pullrequest_#{action}"]
       repo_full_name = pullreq['destination']['repository']['full_name']
+      url = "https://bitbucket.org/#{repo_full_name}"
+      url << "/pull-request/#{pullreq['id']}" if pullreq['id']
       [Activity.new(
         project_id: project.id,
         title: "[Pull Request] #{repo_full_name} - ##{pullreq['id']} #{action}: #{pullreq['title']}",
         body: pullreq['description'],
-        url: "https://bitbucket.org/#{repo_full_name}/pull-request/#{pullreq['id']}",
+        url: url,
         author: pullreq['author']['username'],
         icon_url: pullreq['author']['links']['avatar']['href'],
         source: 'bitbucket'
