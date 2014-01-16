@@ -11,7 +11,7 @@ module Dashbozu
         project_id: project.id,
         title: "[#{params[:type]}] #{params[:application_name]} - #{params[:result]}",
         body: params[:git_branch],
-        url: 'http://example.com',
+        url: params[:build_url],
         status: params[:result] == 'passed' ? 'success' : 'error',
         author: params[:started_by],
         source: 'wercker'

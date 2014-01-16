@@ -7,6 +7,7 @@ describe 'Dashbozu::InputWercker' do
                   type: 'build',
                   result: 'passed',
                   application_name: 'example',
+                  build_url: 'http://wercker.com/hogehoge',
                   git_branch: 'master',
                   started_by: 'John Doe'
                }
@@ -22,6 +23,7 @@ describe 'Dashbozu::InputWercker' do
       its (:source) { should eq 'wercker' }
       its (:body) { should eq 'master' }
       its (:title) { should eq '[build] example - passed' }
+      its (:url) { should eq 'http://wercker.com/hogehoge' }
       its (:status) { should eq 'success' }
       its (:author) { should eq 'John Doe' }
     end
