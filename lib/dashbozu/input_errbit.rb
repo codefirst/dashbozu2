@@ -13,6 +13,7 @@ module Dashbozu
         project_id: project.id,
         title: "[Error] #{p['app_name']} - #{p['error_class']}",
         body: p['message'],
+        author: p['where'],
         status: 'error',
         source: 'errbit'
       )]

@@ -56,6 +56,7 @@ PAYLOAD
       its (:body) { should eq "Sprockets::FileNotFound: couldn't find file 'jquery' (in /app/app/assets/javascripts/application.js.erb:2)" }
       its (:title) { should eq '[Error] Self.Errbit - Sprockets::FileNotFound' }
       its (:status) { should eq 'error' }
+      its (:author) { should eq 'devise/sessions#new' }
     end
   end
 end
