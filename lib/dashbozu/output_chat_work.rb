@@ -1,7 +1,7 @@
 require 'erb'
 module Dashbozu
   class OutputChatWork < Output
-    Dashbozu::Plugin.register_output(OutputChatWork.plugin_name, self)
+    Dashbozu::Plugin.register_output('chat_work', self)
 
     def self.plugin_name
       'chat_work'
