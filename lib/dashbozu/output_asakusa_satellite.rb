@@ -1,7 +1,7 @@
 require 'erb'
 module Dashbozu
   class OutputAsakusaSatellite < Output
-    Dashbozu::Plugin.register_output(plugin_name, self)
+    Dashbozu::Plugin.register_output(OutputAsakusaSatellite.plugin_name, self)
 
     def self.plugin_name
       'asakusa_satellite'
