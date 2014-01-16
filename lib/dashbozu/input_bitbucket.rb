@@ -64,7 +64,7 @@ module Dashbozu
         project_id: project.id,
         title: "[Pull Request Comment] #{repo_full_name} - ##{pullrequest_id} #{action}",
         body: pullreq['content']['raw'],
-        url: url,
+        url: "https://bitbucket.org/#{repo_full_name}/pull-request/#{pullrequest_id}",
         author: pullreq['user']['username'],
         icon_url: pullreq['user']['links']['avatar']['href'],
         source: 'bitbucket'
