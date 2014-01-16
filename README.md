@@ -94,6 +94,19 @@ Add WEBHOOK to NOTIFICATION SERVICE, and set below URL to URL.
 
     http://your.dashbozu.host/hook/your-api-key/errbit
 
+### Wercker
+
+Write `wercker.yml` as following:
+
+    build:
+       after-steps:
+          - mzp/http-notify:
+              url: $DASHBOZU_URL
+
+And set URL as a application environment(we recomend as protected value):
+
+    http://your.dashbozu.host/hook/your-api-key/wercker
+
 Notification
 ---------------
 
