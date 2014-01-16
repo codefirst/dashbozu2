@@ -222,6 +222,7 @@ DEPENDENCIES
   bitbucket_rest_api
   devise
   erb2haml
+  faraday
   gravatar_image_tag
   haml-rails
   jbuilder (~> 1.2)

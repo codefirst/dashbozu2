@@ -12,6 +12,15 @@ defaults: &defaults
       api_key: <%= ENV['OUTPUT_ASAKUSA_SATELLILTE_API_KEY'] || '' %>
       room_id: <%= ENV['OUTPUT_ASAKUSA_SATELLILTE_ROOM_ID'] || '' %>
       message_template: <%= ENV['OUTPUT_ASAKUSA_SATELLILTE_MESSAGE_TEMPLATE'] || '' %>
+    chat_work:
+      token: <%= ENV['OUTPUT_CHAT_WORK_TOKEN'] || '' %>
+      room_id: <%= ENV['OUTPUT_CHAT_WORK_ROOM_ID'] || '' %>
+      message_template: |
+        <%= ENV['OUTPUT_CHAT_WORK_MESSAGE_TEMPLATE'] || "
+        [info][title]<%= activity.title %%> (by <%= activity.author %%>)[/title]<%= activity.body %%>
+        <%= activity.html_url %%>
+        [/info]
+        " %>
 
 production:
   <<: *defaults

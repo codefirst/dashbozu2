@@ -94,3 +94,24 @@ Add WEBHOOK to NOTIFICATION SERVICE, and set below URL to URL.
 
     http://your.dashbozu.host/hook/your-api-key/errbit
 
+Notification
+---------------
+
+### AsakusaSatellite
+
+Set below ENV variables.
+
+* OUTPUT_ASAKUSA_SATELLILTE_URL
+* OUTPUT_ASAKUSA_SATELLILTE_API_KEY
+* OUTPUT_ASAKUSA_SATELLILTE_ROOM_ID
+* OUTPUT_ASAKUSA_SATELLILTE_MESSAGE_TEMPLATE
+
+
+### ChatWork
+
+Set below ENV variables.
+
+* OUTPUT_CHAT_WORK_TOKEN
+* OUTPUT_CHAT_WORK_ROOM_ID
+* OUTPUT_CHAT_WORK_MESSAGE_TEMPLATE
+
