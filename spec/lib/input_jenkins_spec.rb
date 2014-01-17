@@ -10,9 +10,9 @@ describe 'Dashbozu::InputJenkins' do
   "build":{
     "number":1,
     "phase":"COMPLETED",
-    "status":"FAILED",
+    "status":"FAILURE",
     "url":"job/project/5",
-    "full_url":"http://ci.jenkins.org/job/project/5"
+    "full_url":"http://ci.jenkins.org/job/project/5",
     "parameters":{"branch":"master"}
   }
 }
@@ -23,7 +23,7 @@ PAYLOAD
     }
     subject { @activities.first }
     its(:project_id) { should eq @project.id }
-    its(:title) { should eq '[Build] test - #1 failed' }
+    its(:title) { should eq '[Build] test - #1 Failure' }
     #its(:body) { should eq "" }
     its(:url) { should eq 'http://ci.jenkins.org/job/project/5' }
     its(:author) { should eq 'job/project/5' }

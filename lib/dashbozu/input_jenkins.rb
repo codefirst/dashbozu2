@@ -7,10 +7,12 @@ module Dashbozu
     end
 
     def hook(project, params)
+require 'pp'
+pp params
       return [] unless params['build']['phase'] == 'COMPLETED'
       [Activity.new(
         project_id: project.id,
-        title: "[Build] #{params['name']} - ##{params['number']} #{params['build']['status'].downcase}",
+        title: "[Build] #{params['name']} - ##{params['build']['number']} #{params['build']['status'].capitalize}",
         url: params['build']['full_url'],
         author: params['build']['url'],
         status: status(params),
