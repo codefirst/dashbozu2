@@ -5,7 +5,7 @@
         .text-center
           %h1 Dashbozu
           %h4 Store and notify your all development activities.
-          = image_tag 'overview.png', {style: 'height:320px;'}
+          = image_tag 'overview.png', {style: 'max-height:320px;'}
   .row-fluid{style: 'margin-top: 30px;'}
     .content
       .text-center
@@ -13,12 +13,12 @@
           %h4 Getting start with GitHub/Bitbucket account
   .row-fluid
     .content
-      .span6.text-right
+      .span3.offset3.text-center
         = form_tag user_omniauth_authorize_path(:github), :method => 'post' do |f|
           %button.btn.btn-primary.btn-large
             %i.icon-signin
             = "#{t(:button_sign_in)} with GitHub"
-      .span6.text-left
+      .span3.text-center
         = form_tag user_omniauth_authorize_path(:bitbucket), :method => 'post' do |f|
           %button.btn.btn-primary.btn-large
             %i.icon-signin
