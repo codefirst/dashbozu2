@@ -107,6 +107,16 @@ And set URL as a application environment(we recomend as protected value):
 
     http://your.dashbozu.host/hook/your-api-key/wercker
 
+### Jenkins
+
+Install 'Notification Plugin' from Jenkins update center.
+
+And set below settings.
+
+* Format: JSON
+* Protocol: HTTP
+* URL:http: //your.dashbozu.host/hook/your-api-key/jenkins
+
 Notification
 ---------------
 
