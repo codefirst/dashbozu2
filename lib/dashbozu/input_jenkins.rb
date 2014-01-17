@@ -7,26 +7,27 @@ module Dashbozu
     end
 
     def hook(project, params)
-require 'pp'
-pp params
-      return [] unless params['build']['phase'] == 'COMPLETED'
+      build = params['hook']
+      return [] unless build['build']['phase'] == 'FINISHED'
       [Activity.new(
         project_id: project.id,
-        title: "[Build] #{params['name']} - ##{params['build']['number']} #{params['build']['status'].capitalize}",
-        url: params['build']['full_url'],
-        author: params['build']['url'],
-        status: status(params),
+        title: "[Build] #{build['name']} - ##{build['build']['number']} #{build['build']['status'].capitalize}",
+        body: build['build']['status'],
+        url: build['build']['full_url'],
+        author: build['build']['url'],
+        status: status(build),
         source: 'jenkins'
       )]
     end
 
     private
-    def status(params)
-      if params['build']['status'] == 'FAILURE'
+    def status(build)
+      status = build['build']['status']
+      if status == 'FAILURE'
         return 'error'
-      elsif params['build']['status'] == 'UNSTABLE'
+      elsif status == 'UNSTABLE'
         return 'error'
-      elsif params['build']['status'] == 'SUCCESS'
+      elsif status == 'SUCCESS'
         return 'success'
       else
         return ''

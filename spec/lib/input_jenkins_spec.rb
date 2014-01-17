@@ -9,7 +9,7 @@ describe 'Dashbozu::InputJenkins' do
   "url":"JobUrl",
   "build":{
     "number":1,
-    "phase":"COMPLETED",
+    "phase":"FINISHED",
     "status":"FAILURE",
     "url":"job/project/5",
     "full_url":"http://ci.jenkins.org/job/project/5",
@@ -19,12 +19,12 @@ describe 'Dashbozu::InputJenkins' do
 PAYLOAD
       p = MultiJson.load(@payload)
       @project = Project.new
-      @activities = Dashbozu::InputJenkins.new.hook(@project, p)
+      @activities = Dashbozu::InputJenkins.new.hook(@project, 'hook' => p)
     }
     subject { @activities.first }
     its(:project_id) { should eq @project.id }
     its(:title) { should eq '[Build] test - #1 Failure' }
-    #its(:body) { should eq "" }
+    its(:body) { should eq "FAILURE" }
     its(:url) { should eq 'http://ci.jenkins.org/job/project/5' }
     its(:author) { should eq 'job/project/5' }
     its(:status) { should eq 'error' }
