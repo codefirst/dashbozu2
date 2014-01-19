@@ -138,3 +138,28 @@ Set below ENV variables.
 * OUTPUT_CHAT_WORK_ROOM_ID
 * OUTPUT_CHAT_WORK_MESSAGE_TEMPLATE
 
+
+### Http
+
+Set below ENV variables.
+
+* OUTPUT_HTTP_URL
+
+It posts data as JSON format.
+For example:
+
+    {
+      "id":34,
+      "title":"[Deploy] test - aaaa",
+      "body":"new_commit",
+      "source":"heroku",
+      "project_id":1,
+      "url":"http://www.example.com/",
+       "icon_url":"https://secure.gravatar.com/avatar/462233d5aedf66a793dcd95f814f8811?secure=true\u0026size=32",
+      "status":"error",
+      "author":"mallowlabs@gmail.com",
+      "created_at":"2014-01-19T14:46:47.476Z",
+      "updated_at":"2014-01-19T14:46:47.489Z",
+      "encrypted_identifier":"afd6033f1b0ebe47c0152016566e29c26cfeb2d1"
+    }
+

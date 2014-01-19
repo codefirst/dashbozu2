@@ -21,6 +21,8 @@ defaults: &defaults
         <%= activity.html_url %%>
         [/info]
         " %>
+    http:
+      url: <%= ENV['OUTPUT_HTTP_URL'] || '' %>
 
 production:
   <<: *defaults
