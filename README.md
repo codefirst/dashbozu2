@@ -155,7 +155,7 @@ For example:
       "source":"heroku",
       "project_id":1,
       "url":"http://www.example.com/",
-       "icon_url":"https://secure.gravatar.com/avatar/462233d5aedf66a793dcd95f814f8811?secure=true\u0026size=32",
+      "icon_url":"https://secure.gravatar.com/avatar/462233d5aedf66a793dcd95f814f8811?secure=true\u0026size=32",
       "status":"error",
       "author":"mallowlabs@gmail.com",
       "created_at":"2014-01-19T14:46:47.476Z",
