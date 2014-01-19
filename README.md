@@ -63,6 +63,13 @@ Add below URL to "Service Hook".
 
     http://your.dashbozu.host/hook/your-api-key/github
 
+### Bitbucket
+
+Access to your repository setting page.
+Add below URL to "POST" and "Pull Request POST" services.
+
+    http://your.dashbozu.host/hook/your-api-key/bitbucket
+
 ### TravisCI
 
     gem install travis
