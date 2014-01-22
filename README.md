@@ -124,6 +124,12 @@ And set below settings.
 * Protocol: HTTP
 * URL:http: //your.dashbozu.host/hook/your-api-key/jenkins
 
+### Sunline
+
+Add hooks to script as following:
+
+    http://your.dashbozu.host/hook/your-api-key/sunline
+
 Notification
 ---------------
 
