@@ -11,3 +11,5 @@ en:
   label_image: Image
   label_user_name: User name
   label_user_nickname: Nickname
+
+  error_authentication_failed: Authentication failed

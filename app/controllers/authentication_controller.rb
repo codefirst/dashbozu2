@@ -23,4 +23,8 @@ class AuthenticationController < ApplicationController
     sign_out current_user
     redirect_to root_path
   end
+
+  def failure
+    redirect_to root_path, alert: t(:error_authentication_failed)
+  end
 end
