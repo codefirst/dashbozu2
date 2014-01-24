@@ -22,7 +22,7 @@ describe 'Dashbozu::InputWercker' do
       subject { @activities[0] }
       its (:source) { should eq 'wercker' }
       its (:body) { should eq 'master' }
-      its (:title) { should eq '[build] example - passed' }
+      its (:title) { should eq '[Build] example - passed' }
       its (:url) { should eq 'http://wercker.com/hogehoge' }
       its (:status) { should eq 'success' }
       its (:author) { should eq 'John Doe' }

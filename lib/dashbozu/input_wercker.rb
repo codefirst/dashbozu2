@@ -9,7 +9,7 @@ module Dashbozu
     def hook(project, params)
       [Activity.new(
         project_id: project.id,
-        title: "[#{params[:type]}] #{params[:application_name]} - #{params[:result]}",
+        title: "[#{params[:type].capitalize}] #{params[:application_name]} - #{params[:result]}",
         body: params[:git_branch],
         url: params[:build_url],
         status: params[:result] == 'passed' ? 'success' : 'error',
