@@ -56,6 +56,8 @@ GEM
       multipart-post (~> 1.2.0)
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
+    friendly_id (5.0.2)
+      activerecord (~> 4.0.0)
     gravatar_image_tag (1.2.0)
     haml (4.1.0.alpha.2)
       tilt
@@ -223,6 +225,7 @@ DEPENDENCIES
   devise
   erb2haml
   faraday
+  friendly_id
   gravatar_image_tag
   haml-rails
   jbuilder (~> 1.2)

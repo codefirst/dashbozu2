@@ -1,4 +1,7 @@
 class Activity < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :encrypted_identifier, use: :finders
+
   attr_accessor :html_url, :embed_url
 
   belongs_to :project

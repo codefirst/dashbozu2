@@ -11,7 +11,7 @@
 
 = content_for :opengraph do
   %meta{property: "og:type",        content: 'article'}
-  %meta{property: "og:url",         content: activity_url(@activity.encrypted_identifier)}
+  %meta{property: "og:url",         content: activity_url(@activity)}
   %meta{property: "og:title",       content: @activity.title}
   %meta{property: "og:description", content: @activity.body}
   %meta{property: "og:image",       content: activity_source_image_url(@activity)}

@@ -21,12 +21,12 @@ class ActivitiesController < ApplicationController
   end
 
   def show
-    @activity = Activity.where(encrypted_identifier: params[:id]).first
+    @activity = Activity.find(params[:id])
     render text: 'Activity not found', status: 404 unless @activity
   end
 
   def embed
-    @activity = Activity.where(encrypted_identifier: params[:id]).first
+    @activity = Activity.find(params[:id])
     if @activity
       render layout: false, template: 'activities/show'
     else

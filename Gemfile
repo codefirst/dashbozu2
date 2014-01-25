@@ -7,6 +7,7 @@ gem 'rails', '4.0.2'
 gem 'sass-rails', '~> 4.0.0'
 gem 'haml-rails'
 gem 'gravatar_image_tag'
+gem 'friendly_id'
 
 group :development, :test do
   gem 'sqlite3'

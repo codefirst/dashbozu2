@@ -80,7 +80,7 @@ You will get encrypted value. Edit ```.travis.yml```.
     ...
     notifications:
       webhooks:
-        secure: "your-encrepted-value"
+        secure: "your-encrypted-value"
 
 ### Heroku
 
