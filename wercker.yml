@@ -4,7 +4,7 @@ services:
 build:
     steps:
         - bundle-install
-        - rails-database-yml
+        - rails-database-yml:
             service: postgresql
         - script:
             name: echo ruby information
