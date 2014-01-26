@@ -14,7 +14,7 @@ build:
                 echo -p "gem list: $(gem list)"
         - script:
             name: rspec
-            code: bundle exec rake rspec
+            code: bundle exec rake spec
     after-steps:
         - mzp/http-notify:
             url: $DASHBOZU_URL
