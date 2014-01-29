@@ -28,7 +28,7 @@ class ActivitiesController < ApplicationController
   def embed
     @activity = Activity.find(params[:id])
     if @activity
-      render layout: false, template: 'activities/show'
+      render layout: false
     else
       render text: 'Activity not found', status: 404
     end
