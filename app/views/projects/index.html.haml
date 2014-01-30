@@ -10,10 +10,10 @@
         %tr
           %th Name
           %th Provider
-          %th API key
+          %th.hidden-phone API key
       %tbody
         - @projects.each do |project|
           %tr
             %td= link_to project.name, project_activities_path(project.api_key)
             %td= project.provider
-            %td= project.api_key
+            %td.hidden-phone= project.api_key
