@@ -12,5 +12,5 @@
 .activity-list
   = render partial: 'activity', collection: @activities
 
-= paginate(@activities)
+= paginate(@activities, window: 2)
 
