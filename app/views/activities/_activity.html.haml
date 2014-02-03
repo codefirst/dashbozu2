@@ -32,7 +32,7 @@
     .activity-author
       = activity.author
     .activity-body
-      = activity.body
+      = truncate(activity.body, length: 256)
     .activity-created
       = link_to strftime(activity.created_at), activity_url(activity), target: target
 
