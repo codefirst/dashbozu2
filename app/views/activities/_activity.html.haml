@@ -28,11 +28,11 @@
   .activity-right{style: "background-image: url(#{activity_source_image_url(activity)})"}
     .activity-title
       = image_tag activity.icon_url if activity.icon_url
-      = link_to activity.title, activity.url
+      = link_to activity.title, activity.url, target: target
     .activity-author
       = activity.author
     .activity-body
       = activity.body
     .activity-created
-      = link_to strftime(activity.created_at), activity_url(activity)
+      = link_to strftime(activity.created_at), activity_url(activity), target: target
 

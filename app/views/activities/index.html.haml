@@ -10,7 +10,7 @@
       = @project.name
 
 .activity-list
-  = render partial: 'activity', collection: @activities
+  = render partial: 'activity', collection: @activities, locals: {target: nil}
 
 = paginate(@activities, window: 2)
 

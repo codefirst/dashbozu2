@@ -7,7 +7,7 @@
     %span.divider &gt;
   %li.active= @activity.title
 
-= render partial: 'activity', collection: [@activity]
+= render partial: 'activity', collection: [@activity], locals: {target: nil}
 
 = content_for :opengraph do
   %meta{property: "og:type",        content: 'article'}
