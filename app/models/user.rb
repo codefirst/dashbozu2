@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :auths
   has_many :user_projects
-  has_many :projects, through: :user_projects
+  has_many :projects, -> { order(:name) }, through: :user_projects
 
   def connect_with(auth)
     if auth.user and auth.user_id != self.id
