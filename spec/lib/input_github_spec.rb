@@ -43,6 +43,27 @@ describe 'Dashbozu::InputGitHub' do
     end
   end
 
+  context 'issue_comment' do
+    before {
+      @payload = File.read(File.dirname(__FILE__) + '/data/github/issue_comment.json')
+      @project = Project.new
+      @activities = Dashbozu::InputGitHub.new.hook(@project, payload: @payload)
+    }
+    context 'length' do
+      subject { @activities }
+      its (:length) { should eq 1 }
+    end
+    context 'first' do
+      subject { @activities[0] }
+      its (:source) { should eq 'github' }
+      its (:body) { should eq 'Sorry! I have fixed!' }
+      its (:title) { should eq '[Comment] QuoteIt - #10 created: Fix typo and mixed indents' }
+      its (:url) { should eq 'https://github.com/codefirst/QuoteIt/pull/10#issuecomment-35151703' }
+      its (:icon_url) { should eq 'https://gravatar.com/avatar/462233d5aedf66a793dcd95f814f8811?d=https%3A%2F%2Fidenticons.github.com%2Fb37ffe9e8f67937ea21dc01fd2c41a39.png&r=x' }
+      its (:author) { should eq 'mallowlabs' }
+    end
+  end
+
   context 'pull_request' do
     before {
       @payload = File.read(File.dirname(__FILE__) + '/data/github/pull_request.json')

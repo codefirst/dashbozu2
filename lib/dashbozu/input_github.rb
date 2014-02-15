@@ -12,7 +12,11 @@ module Dashbozu
       if json['before']
         return hook_push(project, json)
       elsif json['issue']
-        return hook_issue(project, json)
+        if json['comment']
+          return hook_comment(project, json)
+        else
+          return hook_issue(project, json)
+        end
       elsif json['pull_request']
         return hook_pull_request(project, json)
       end
@@ -56,6 +60,21 @@ module Dashbozu
         title: "[Pull Request] #{pull_request['head']['repo']['name']} - ##{pull_request['number']} #{json['action']}: #{pull_request['title']}",
         body: pull_request['body'],
         url: pull_request['html_url'],
+        author: user['login'],
+        icon_url: user['avatar_url'],
+        source: 'github'
+      )]
+    end
+
+    def hook_comment(project, json)
+      comment = json['comment']
+      issue = json['issue']
+      user = comment['user']
+      [Activity.new(
+        project_id: project.id,
+        title: "[Comment] #{json['repository']['name']} - ##{issue['number']} #{json['action']}: #{issue['title']}",
+        body: comment['body'],
+        url: comment['html_url'],
         author: user['login'],
         icon_url: user['avatar_url'],
         source: 'github'
