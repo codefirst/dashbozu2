@@ -122,7 +122,7 @@ And set below settings.
 
 * Format: JSON
 * Protocol: HTTP
-* URL:http: //your.dashbozu.host/hook/your-api-key/jenkins
+* URL: http://your.dashbozu.host/hook/your-api-key/jenkins
 
 ### Sunline
 
