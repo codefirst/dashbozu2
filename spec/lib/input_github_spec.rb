@@ -1,6 +1,18 @@
 require 'spec_helper'
 
 describe 'Dashbozu::InputGitHub' do
+  context 'register' do
+    before {
+      @payload = File.read(File.dirname(__FILE__) + '/data/github/register.json')
+      @project = Project.new
+      @activities = Dashbozu::InputGitHub.new.hook(@project, payload: @payload)
+    }
+    context 'length' do
+      subject { @activities }
+      its (:length) { should eq 0 }
+    end
+  end
+
   context 'push' do
     before {
       @payload = File.read(File.dirname(__FILE__) + '/data/github/push.json')

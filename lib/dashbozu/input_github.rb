@@ -20,6 +20,7 @@ module Dashbozu
       elsif json['pull_request']
         return hook_pull_request(project, json)
       end
+      return []
     end
 
     private
