@@ -8,7 +8,12 @@ module Dashbozu
 
     def hook(project, params)
       payload_body = params[:payload]
-      json = MultiJson.load(payload_body)
+      if payload_body.blank?
+        json = params
+      else
+        json = MultiJson.load(payload_body)
+      end
+
       if json['before']
         return hook_push(project, json)
       elsif json['issue']

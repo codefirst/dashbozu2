@@ -14,23 +14,46 @@ describe 'Dashbozu::InputGitHub' do
   end
 
   context 'push' do
-    before {
-      @payload = File.read(File.dirname(__FILE__) + '/data/github/push.json')
-      @project = Project.new
-      @activities = Dashbozu::InputGitHub.new.hook(@project, payload: @payload)
-    }
-    context 'length' do
-      subject { @activities }
-      its (:length) { should eq 3 }
+    context 'has payload param key' do
+      before {
+        @payload = File.read(File.dirname(__FILE__) + '/data/github/push.json')
+        @project = Project.new
+        @activities = Dashbozu::InputGitHub.new.hook(@project, payload: @payload)
+      }
+      context 'length' do
+        subject { @activities }
+        its (:length) { should eq 3 }
+      end
+      context 'first' do
+        subject { @activities[0] }
+        its (:source) { should eq 'github' }
+        its (:body) { should eq "Test" }
+        its (:title) { should eq '[Commit] testing - c441029cf' }
+        its (:url) { should eq 'https://github.com/octokitty/testing/commit/c441029cf673f84c8b7db52d0a5944ee5c52ff89' }
+        its (:author) { should eq 'octokitty' }
+        its (:icon_url) { should =~ /gravatar/ }
+      end
     end
-    context 'first' do
-      subject { @activities[0] }
-      its (:source) { should eq 'github' }
-      its (:body) { should eq "Test" }
-      its (:title) { should eq '[Commit] testing - c441029cf' }
-      its (:url) { should eq 'https://github.com/octokitty/testing/commit/c441029cf673f84c8b7db52d0a5944ee5c52ff89' }
-      its (:author) { should eq 'octokitty' }
-      its (:icon_url) { should =~ /gravatar/ }
+
+    context 'params as json' do
+      before {
+        @payload = File.read(File.dirname(__FILE__) + '/data/github/push.json')
+        @project = Project.new
+        @activities = Dashbozu::InputGitHub.new.hook(@project, MultiJson.load(@payload))
+      }
+      context 'length' do
+        subject { @activities }
+        its (:length) { should eq 3 }
+      end
+      context 'first' do
+        subject { @activities[0] }
+        its (:source) { should eq 'github' }
+        its (:body) { should eq "Test" }
+        its (:title) { should eq '[Commit] testing - c441029cf' }
+        its (:url) { should eq 'https://github.com/octokitty/testing/commit/c441029cf673f84c8b7db52d0a5944ee5c52ff89' }
+        its (:author) { should eq 'octokitty' }
+        its (:icon_url) { should =~ /gravatar/ }
+      end
     end
   end
 
