@@ -130,6 +130,14 @@ Add hooks to script as following:
 
     http://your.dashbozu.host/hook/your-api-key/sunline
 
+### Redmine
+
+Install 'Redmine Redmine Plugin' from https://github.com/suer/redmine_webhook.
+
+Add post URL in project settings page as following:
+
+    http://your.dashbozu.host/hook/your-api-key/redmine
+
 Notification
 ---------------
 
