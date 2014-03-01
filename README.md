@@ -132,7 +132,7 @@ Add hooks to script as following:
 
 ### Redmine
 
-Install 'Redmine Redmine Plugin' from https://github.com/suer/redmine_webhook.
+Install 'Redmine Plugin' from https://github.com/suer/redmine_webhook.
 
 Add post URL in project settings page as following:
 
