@@ -31,7 +31,7 @@ module Dashbozu
         body: issue['description'],
         url: payload['url'],
         author: author['login'],
-        icon_url: payload['icon_url'],
+        icon_url: author['icon_url'],
         source: 'redmine'
       )]
     end
@@ -43,14 +43,14 @@ module Dashbozu
 
       issue   = payload['issue']
       journal = payload['journal']
-      author  = issue['author']
+      author  = journal['author']
       [Activity.new(
         project_id: project.id,
         title: "[Issue] #{issue['project']['name']} - ##{issue['id']} #{payload['action']}: #{issue['subject']}",
         body: journal['notes'],
         url: payload['url'],
         author: author['login'],
-        icon_url: payload['icon_url'],
+        icon_url: author['icon_url'],
         source: 'redmine'
       )]
     end

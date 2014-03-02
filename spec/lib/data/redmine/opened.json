@@ -2,6 +2,7 @@
   "payload": {
     "issue": {
       "author": {
+        "icon_url": "http://www.gravatar.com/avatar/aaaaaaaaaaaaaa",
         "identity_url": null,
         "lastname": "test",
         "firstname": "user",
@@ -45,7 +46,6 @@
       }
     },
     "action": "opened",
-    "url": "https://example.com",
-    "icon_url": "http://www.gravatar.com/avatar/aaaaaaaaaaaaaa"
+    "url": "https://example.com"
   }
 }
