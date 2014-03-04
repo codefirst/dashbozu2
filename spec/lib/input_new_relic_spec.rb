@@ -3,19 +3,7 @@ require 'spec_helper'
 describe 'Dashbozu::InputNewRelic' do
   context 'hook' do
     before {
-    @payload = <<PAYLOAD
-{
-"created_at":"2012-10-22T20:46:34+00:00",
-"application_name":"Application name",
-"account_name":"Account name",
-"severity":"Severity",
-"message":"Message about alert",
-"short_description":"Short description about alert",
-"long_description":"Long description about alert",
-"alert_url":"http://PATH_TO_NEW_RELIC",
-"version":"1.0"
-}
-PAYLOAD
+      @payload = File.read(File.dirname(__FILE__) + '/data/new_relic/alert.json')
       @project = Project.new
       @activities = Dashbozu::InputNewRelic.new.hook(@project, alert: @payload)
     }

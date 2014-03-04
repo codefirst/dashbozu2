@@ -1,0 +1,11 @@
+{
+"created_at":"2012-10-22T20:46:34+00:00",
+"application_name":"Application name",
+"account_name":"Account name",
+"severity":"Severity",
+"message":"Message about alert",
+"short_description":"Short description about alert",
+"long_description":"Long description about alert",
+"alert_url":"http://PATH_TO_NEW_RELIC",
+"version":"1.0"
+}
