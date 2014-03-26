@@ -14,4 +14,5 @@ require 'dashbozu/input_travis_ci'
 require 'dashbozu/input_heroku'
 require 'dashbozu/input_wercker'
 require 'dashbozu/input_redmine'
+require 'dashbozu/input_dploy'
 

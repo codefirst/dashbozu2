@@ -1,0 +1,13 @@
+{
+     "author":"author username",
+     "repository":"dashbozu2",
+     "author_name":"John Smith",
+     "comment":"comment example",
+     "author_email":"johnsmith@example.com",
+     "server":"server example",
+     "environment":"production",
+     "revision":"5",
+     "deployed_at":"deployed at date",
+     "repository_url":"git@github.com:codefirst/dashbozu2.git",
+     "source":"beanstalkapp.com"
+}
