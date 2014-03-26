@@ -7,7 +7,8 @@ module Dashbozu
     end
 
     def hook(project, params)
-      payload = JSON.load(params.to_json)
+      return [] if params.keys.empty?
+      payload = JSON.load(params.keys.first)
       [Activity.new(
         project_id: project.id,
         title: "[Deploy] #{payload['repository']} - ##{payload['revision']} : #{payload['server']}",
