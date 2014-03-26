@@ -7,16 +7,16 @@ module Dashbozu
     end
 
     def hook(project, params)
+      payload = JSON.load(params.to_json)
       [Activity.new(
         project_id: project.id,
-        title: "[Deploy] #{params['repository']} - ##{params['revision']} : #{params['server']}",
-        body: params['comment'],
+        title: "[Deploy] #{payload['repository']} - ##{payload['revision']} : #{payload['server']}",
+        body: payload['comment'],
         url: '',
-        author: params['author_name'],
+        author: payload['author_name'],
         icon_url: '',
         source: 'dploy'
       )]
     end
-
   end
 end

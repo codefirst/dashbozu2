@@ -3,9 +3,10 @@ require 'spec_helper'
 describe 'Dashbozu::InputDploy' do
   context 'post deployment' do
     before {
-      @payload = File.read(File.dirname(__FILE__) + '/data/dploy/post_deployment.json')
+      params = mock
+      params.stub(:to_json) { File.read(File.dirname(__FILE__) + '/data/dploy/post_deployment.json') }
       @project = Project.new
-      @activities = Dashbozu::InputDploy.new.hook(@project, JSON.load(@payload))
+      @activities = Dashbozu::InputDploy.new.hook(@project, params)
     }
     subject { @activities.first }
     its(:project_id) { should eq @project.id }
