@@ -13,6 +13,7 @@ describe 'Dashbozu::InputDploy' do
     its(:title) { should eq '[Deploy] dashbozu2 - #58e79969c : server example' }
     its(:body) { should eq "comment example" }
     its(:author) { should eq 'John Smith' }
+    its(:icon_url) { should =~ /gravatar/ }
     its(:source) { should eq 'dploy' }
   end
 end

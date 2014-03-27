@@ -15,7 +15,7 @@ module Dashbozu
         body: payload['comment'],
         url: '',
         author: payload['author_name'],
-        icon_url: '',
+        icon_url: GravatarImageTag.gravatar_url(payload['author_email']),
         source: 'dploy'
       )]
     end
