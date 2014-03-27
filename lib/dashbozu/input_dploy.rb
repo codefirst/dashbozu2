@@ -11,7 +11,7 @@ module Dashbozu
       payload = JSON.load(params.keys.first)
       [Activity.new(
         project_id: project.id,
-        title: "[Deploy] #{payload['repository']} - ##{payload['revision']} : #{payload['server']}",
+        title: "[Deploy] #{payload['repository']} - ##{payload['revision'][0..8]} : #{payload['server']}",
         body: payload['comment'],
         url: '',
         author: payload['author_name'],

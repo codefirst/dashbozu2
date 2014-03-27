@@ -6,7 +6,7 @@
      "author_email":"johnsmith@example.com",
      "server":"server example",
      "environment":"production",
-     "revision":"5",
+     "revision":"58e79969c08d45fa7fb184ed7c333d8e174aa6ad",
      "deployed_at":"deployed at date",
      "repository_url":"git@github.com:codefirst/dashbozu2.git",
      "source":"beanstalkapp.com"
