@@ -9,7 +9,7 @@ describe 'Dashbozu::InputDploy' do
     }
     subject { @activities.first }
     its(:project_id) { should eq @project.id }
-    its(:title) { should eq '[Deploy] dashbozu2 - #58e79969c : server example' }
+    its(:title) { should eq '[Deploy] dashbozu2 - 58e79969c : server example' }
     its(:body) { should eq "comment example" }
     its(:author) { should eq 'John Smith' }
     its(:icon_url) { should =~ /gravatar/ }
