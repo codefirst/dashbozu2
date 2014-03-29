@@ -138,6 +138,12 @@ Add post URL in project settings page as following:
 
     http://your.dashbozu.host/hook/your-api-key/redmine
 
+### dploy.io
+
+Set 'Post-Deployment URL' in 'Servers Configuration':
+
+    http://your.dashbozu.host/hook/your-api-key/dploy
+
 Notification
 ---------------
 
