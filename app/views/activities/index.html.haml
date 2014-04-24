@@ -1,13 +1,16 @@
-%ul.breadcrumb
-  - unless @project
+- unless @project
+  %ul.breadcrumb
     %li.active
       = 'Activities'
-  - else
+- else
+  %ul.breadcrumb
     %li
       = link_to 'Projects', projects_path
       %span.divider &gt;
     %li.active
       = @project.name
+  .row-fluid
+    .pull-right= link_to 'Show hooks', project_hooks_path(@project.api_key)
 
 .activity-list
   = render partial: 'activity', collection: @activities, locals: {target: nil}

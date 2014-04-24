@@ -46,4 +46,9 @@ class ProjectsController < ApplicationController
     redirect_to projects_from_service_path(provider)
   end
 
+  def hooks
+    @project = Project.with_api_key(params[:api_key]).first
+    @plugins = Dashbozu::Plugin.input
+  end
+
 end

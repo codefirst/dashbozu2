@@ -8,6 +8,7 @@ Dashbozu2::Application.routes.draw do
 
   get "projects", controller: "projects", action: "index", as: "projects"
   get "projects/from_service/:provider(/:owner)", controller: "projects", action: "from_service", as: "projects_from_service"
+  get "projects/:api_key/hooks", controller: "projects", action: "hooks", as: "project_hooks"
   get "projects/:api_key/activities", controller: "activities", action: "index", as: "project_activities"
   post "projects/toggle/:provider/*name", controller: "projects", action: "toggle", as: "toggle_project"
 
@@ -20,5 +21,5 @@ Dashbozu2::Application.routes.draw do
   end
   get ':controller/:action', controller: 'authentication'
 
-  post 'hook/:api_key/*name', to: 'hook#hook', as: :hook_path
+  post 'hook/:api_key/*name', to: 'hook#hook', as: :hook
 end
