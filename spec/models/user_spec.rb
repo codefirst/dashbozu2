@@ -34,4 +34,13 @@ describe User do
       its(:auths) { should have(1).items }
     end
   end
+
+  describe 'create dashbozu project' do
+    before do
+      Project.delete_all
+      @user = User.create!(name: 'User name')
+    end
+    subject { @user.get_or_create_dashbozu_project }
+    it { should_not be_nil }
+  end
 end

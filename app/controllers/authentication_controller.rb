@@ -12,6 +12,7 @@ class AuthenticationController < ApplicationController
       user = current_user || User.new
       user = auth.user if not request.env['omniauth.params']['connect'] and auth.user
       user.connect_with(auth)
+      user.get_or_create_dashbozu_project
       sign_in user, :event => :authentication
       session["#{provider}_oauth_credentials"] = authhash.credentials
       redirect_to(request.env['omniauth.origin'] || projects_path)

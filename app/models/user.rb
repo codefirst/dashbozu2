@@ -45,4 +45,17 @@ class User < ActiveRecord::Base
     return 0 unless service_client.respond_to?(:project_count)
     service_client.project_count(owner)
   end
+
+  def get_or_create_dashbozu_project
+    project = self.dashbozu_project
+    return project if project
+    project = Project.new(provider: Project::TYPE_DASHBOZU)
+    project.save!
+    project.create_association(self)
+    project
+  end
+
+  def dashbozu_project
+    self.projects.provided_by_dashbozu.first
+  end
 end

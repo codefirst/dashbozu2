@@ -16,6 +16,26 @@ describe Project do
     it { should_not be_nil }
   end
 
+  describe 'provided by dashbozu' do
+    before do
+      @project1 = Project.create!(provider: Project::TYPE_DASHBOZU)
+      @project2 = Project.create!(provider: 'github')
+    end
+    subject { Project.provided_by_dashbozu }
+    it { should include(@project1) }
+    it { should_not include(@project2) }
+  end
+
+  describe 'without provided by dashbozu' do
+    before do
+      @project1 = Project.create!(provider: Project::TYPE_DASHBOZU)
+      @project2 = Project.create!(provider: 'github')
+    end
+    subject { Project.without_provided_by_dashbozu }
+    it { should_not include(@project1) }
+    it { should include(@project2) }
+  end
+
   describe 'create association' do
     before do
       @project = Project.create!

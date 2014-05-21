@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.projects
+    @projects = current_user.projects.without_provided_by_dashbozu
     if @projects.empty?
       redirect_to action: :from_service, provider: logged_provider
       return
