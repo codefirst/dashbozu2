@@ -6,6 +6,8 @@
     %li= link_to Auth.name_of(auth.provider), projects_from_service_path(auth.provider)
 
 %dl.dl-horizontal
+  %dt= t(:label_api_key)
+  %dd= @user_project.api_key if @user_project
 
 - current_user.auths.each do |auth|
   %dl.dl-horizontal
