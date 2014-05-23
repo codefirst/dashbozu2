@@ -1,13 +1,12 @@
 %h3 Profile
 
+.row-fluid
+  .pull-right= link_to 'Show hooks', profile_hooks_path
+
 %ul.nav.nav-tabs
   %li.active= link_to t(:button_profile), profile_show_path
   - current_user.auths.each do |auth|
     %li= link_to Auth.name_of(auth.provider), projects_from_service_path(auth.provider)
-
-%dl.dl-horizontal
-  %dt= t(:label_api_key)
-  %dd= @user_project.api_key if @user_project
 
 - current_user.auths.each do |auth|
   %dl.dl-horizontal

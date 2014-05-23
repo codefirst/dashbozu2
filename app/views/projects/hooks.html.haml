@@ -3,10 +3,4 @@
     %h3{style: 'display:inline'} Hooks
 .row-fluid
   .pull-right= link_to 'Back to project', project_activities_path(@project.api_key)
-.row-fluid
-  .span12
-    - @plugins.sort.each do |type, plugin|
-      .plugin
-        %h4= plugin.name.sub(/^Dashbozu::Input/, '')
-        %pre
-          = link_to hook_url(@project.api_key, type)
+= render partial: 'hooks'

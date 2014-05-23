@@ -13,6 +13,7 @@ Dashbozu2::Application.routes.draw do
   post "projects/toggle/:provider/*name", controller: "projects", action: "toggle", as: "toggle_project"
 
   get "profile/show"
+  get "profile/hooks", as: "profile_hooks"
 
   devise_for :users, controllers: { omniauth_callbacks: 'authentication' }
   devise_scope :user do
