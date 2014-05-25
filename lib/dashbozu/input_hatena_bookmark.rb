@@ -14,7 +14,7 @@ module Dashbozu
         body: "#{params[:comment]} #{params[:url]}",
         url: params[:permalink],
         author: params[:username],
-        icon_url: '',
+        icon_url: "http://cdn1.www.st-hatena.com/users/su/#{params[:username]}/profile.gif",
         source: 'hatena_bookmark'
       )]
     end
