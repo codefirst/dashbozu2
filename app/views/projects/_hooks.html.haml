@@ -1,7 +1,7 @@
 .row-fluid
   .span12
-    - @plugins.sort.each do |type, plugin|
+    - plugins.sort.each do |type, plugin|
       .plugin
         %h4= plugin.name.sub(/^Dashbozu::Input/, '')
         %pre
-          = link_to hook_url(@project.api_key, type)
+          = link_to hook_url(project.api_key, type)

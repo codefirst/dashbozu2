@@ -3,4 +3,4 @@
     %h3{style: 'display:inline'} Project Hooks
 .row-fluid
   .pull-right= link_to 'Back to project', project_activities_path(@project.api_key)
-= render partial: 'hooks'
+= render partial: 'hooks', locals: {project: @project, plugins: @plugins }
