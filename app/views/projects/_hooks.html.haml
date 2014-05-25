@@ -4,4 +4,5 @@
       .plugin
         %h4= plugin.name.sub(/^Dashbozu::Input/, '')
         %pre
-          = link_to hook_url(project.api_key, type)
+          - url = hook_url(project.api_key, type)
+          = link_to url, url
