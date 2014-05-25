@@ -6,6 +6,10 @@ module Dashbozu
       super
     end
 
+    def self.scope
+      :project
+    end
+
     def hook(project, params)
       build = params['hook']
       return [] unless build['build']['phase'] == 'FINISHED'

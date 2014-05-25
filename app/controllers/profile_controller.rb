@@ -5,6 +5,6 @@ class ProfileController < ApplicationController
 
   def hooks
     @project = current_user.projects.provided_by_dashbozu.first
-    @plugins = Dashbozu::Plugin.input
+    @plugins = Dashbozu::Plugin.user_input
   end
 end

@@ -6,6 +6,10 @@ module Dashbozu
       super
     end
 
+    def self.scope
+      :project
+    end
+
     def hook(project, params)
       payload_body = params[:payload]
       p = MultiJson.load(payload_body)

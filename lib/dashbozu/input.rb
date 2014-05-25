@@ -4,6 +4,10 @@ module Dashbozu
       super
     end
 
+    def self.scope
+      raise "#{self} must override self.scope method"
+    end
+
     def hook(project, params)
       []
     end

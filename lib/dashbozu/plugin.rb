@@ -15,6 +15,12 @@ module Dashbozu
     def register_output(type, klass)
       @output[type] = klass
     end
+
+    %w(project user).each do |scope|
+      define_method "#{scope}_input" do
+        @input.select {|_, plugin| plugin.scope.to_s == scope}
+      end
+    end
   end
 
   Plugin = PluginClass.new

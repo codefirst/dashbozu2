@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
 
   def hooks
     @project = Project.with_api_key(params[:api_key]).first
-    @plugins = Dashbozu::Plugin.input
+    @plugins = Dashbozu::Plugin.project_input
   end
 
 end

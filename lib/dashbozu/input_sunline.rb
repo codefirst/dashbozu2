@@ -6,6 +6,10 @@ module Dashbozu
       super
     end
 
+    def self.scope
+      :project
+    end
+
     def hook(project, params)
       json = MultiJson.load(params[:payload])
       body = tail_lines(json['log']['result'], 3)
