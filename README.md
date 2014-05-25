@@ -144,6 +144,12 @@ Set 'Post-Deployment URL' in 'Servers Configuration':
 
     http://your.dashbozu.host/hook/your-api-key/dploy
 
+### Hatena Bookmark
+
+Set Web Hook configuration in your preference:
+
+    http://your.dashbozu.host/hook/your-api-key/hatena_bookmark
+
 Notification
 ---------------
 
