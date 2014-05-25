@@ -6,10 +6,6 @@ module Dashbozu
       super
     end
 
-    def self.scope
-      :project
-    end
-
     def hook(project, params)
       payload_body = params[:alert]
       return [] unless payload_body

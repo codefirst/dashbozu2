@@ -1,13 +1,10 @@
 module Dashbozu
   class InputHatenaBookmark < Input
     Dashbozu::Plugin.register_input('hatena_bookmark', self)
+    hook_scope :user
 
     def initialize
       super
-    end
-
-    def self.scope
-      :user
     end
 
     def hook(project, params)

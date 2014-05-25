@@ -5,7 +5,11 @@ module Dashbozu
     end
 
     def self.scope
-      raise "#{self} must override self.scope method"
+      @scope || :project
+    end
+
+    def self.hook_scope(scope)
+      @scope = scope
     end
 
     def hook(project, params)

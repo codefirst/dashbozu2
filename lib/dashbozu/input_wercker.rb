@@ -6,10 +6,6 @@ module Dashbozu
       super
     end
 
-    def self.scope
-      :project
-    end
-
     def hook(project, params)
       [Activity.new(
         project_id: project.id,
