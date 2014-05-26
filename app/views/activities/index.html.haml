@@ -10,7 +10,7 @@
     %li.active
       = @project.name
   .row-fluid
-    .pull-right= link_to 'Show hooks', project_hooks_path(@project.api_key)
+    .pull-right= link_to 'Show project hooks', project_hooks_path(@project.api_key)
 
 .activity-list
   = render partial: 'activity', collection: @activities, locals: {target: nil}

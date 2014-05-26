@@ -2,5 +2,5 @@
   .row-fluid
     %h3{style: 'display:inline'} User Hooks
 .row-fluid
-  .pull-right= link_to 'Back to profile', profile_show_path
+  .pull-right= link_to 'Back to user activities', user_activities_path
 = render partial: 'projects/hooks', locals: {project: @project, plugins: @plugins }

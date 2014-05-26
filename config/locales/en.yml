@@ -4,6 +4,7 @@ en:
   button_profile: Profile
   button_sign_out: Sign out
   button_connect: Connect
+  button_user_activity: User Activity
 
   button_repositories: Repositories
 

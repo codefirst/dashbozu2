@@ -1,0 +1,13 @@
+%ul.breadcrumb
+  %li
+    = link_to 'Profile', profile_show_path
+    %span.divider &gt;
+  %li.active Activities
+.row-fluid
+  .pull-right= link_to 'Show user hooks', profile_hooks_path
+
+.activity-list
+  = render partial: 'activity', collection: @activities, locals: {target: nil}
+
+= paginate(@activities, window: 2)
+

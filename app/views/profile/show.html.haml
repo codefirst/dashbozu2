@@ -1,8 +1,5 @@
 %h3 Profile
 
-.row-fluid
-  .pull-right= link_to 'Show hooks', profile_hooks_path
-
 %ul.nav.nav-tabs
   %li.active= link_to t(:button_profile), profile_show_path
   - current_user.auths.each do |auth|
