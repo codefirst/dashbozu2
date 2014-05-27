@@ -3,7 +3,7 @@ class GithubAuth  < Auth
     'GitHub'
   end
 
-  def self.get_or_create_by_authhash(authhash)
+  def self.find_or_create_by_authhash(authhash)
     condition = {provider: authhash.provider, uid: authhash.uid}
     auth = self.where(condition).first || self.new(condition)
     auth.email = authhash.info.email

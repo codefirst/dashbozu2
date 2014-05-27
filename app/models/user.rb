@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
     service_client.project_count(owner)
   end
 
-  def get_or_create_dashbozu_project
+  def find_or_create_dashbozu_project
     project = self.dashbozu_project
     return project if project
     project = Project.new(provider: Project::TYPE_DASHBOZU)

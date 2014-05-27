@@ -40,7 +40,7 @@ describe User do
       Project.delete_all
       @user = User.create!(name: 'User name')
     end
-    subject { @user.get_or_create_dashbozu_project }
+    subject { @user.find_or_create_dashbozu_project }
     it { should_not be_nil }
   end
 end

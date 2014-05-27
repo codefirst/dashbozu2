@@ -8,11 +8,11 @@ class AuthenticationController < ApplicationController
   Settings.omniauth.keys.each do |provider|
     define_method provider do
       authhash = request.env['omniauth.auth']
-      auth = Auth.get_or_create_by_authhash(authhash)
+      auth = Auth.find_or_create_by_authhash(authhash)
       user = current_user || User.new
       user = auth.user if not request.env['omniauth.params']['connect'] and auth.user
       user.connect_with(auth)
-      user.get_or_create_dashbozu_project
+      user.find_or_create_dashbozu_project
       sign_in user, :event => :authentication
       session["#{provider}_oauth_credentials"] = authhash.credentials
       redirect_to(request.env['omniauth.origin'] || projects_path)

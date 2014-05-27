@@ -5,7 +5,7 @@ class Auth < ActiveRecord::Base
     "#{provider}_auth".classify.constantize.provider_name
   end
 
-  def self.get_or_create_by_authhash(authhash)
-    "#{authhash.provider}_auth".classify.constantize.get_or_create_by_authhash(authhash)
+  def self.find_or_create_by_authhash(authhash)
+    "#{authhash.provider}_auth".classify.constantize.find_or_create_by_authhash(authhash)
   end
 end
