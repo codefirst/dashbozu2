@@ -20,7 +20,7 @@ class ActivitiesController < ApplicationController
     @project = current_user.projects.provided_by_dashbozu.first
     if @project
       @activities = @project.activities.page(params[:page]).per(PER_PAGE).order('created_at desc')
-      flash.now[:notice] = "Set WebHooks to external services. See #{ActionController::Base.helpers.link_to 'all hook list', project_hooks_path(@project.api_key)}." if @activities.empty?
+      flash.now[:notice] = "Set WebHooks to external services. See #{ActionController::Base.helpers.link_to 'all hook list', profile_hooks_path}." if @activities.empty?
     else
       render text: 'Project not found', status: 404
     end
