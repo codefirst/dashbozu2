@@ -34,11 +34,11 @@
                   %a.dropdown-toggle(data-toggle="dropdown" role="button" href="#")
                     = t(:button_account)
                     %i.icon-caret-down
-                  %ul.dropdown-menu.account-menu
-                    %li= link_to t(:button_profile), profile_show_path, class: 'icon-user'
-                    %li= link_to t(:button_user_activity), user_activities_path, class: 'icon-check'
-                    %li= link_to t(:button_sign_out), destroy_user_session_path, method: :delete, class: 'icon-signout'
 
+                  %ul.dropdown-menu.account-menu
+                    %li= icon_link_to t(:button_profile), profile_show_path, 'user'
+                    %li= icon_link_to t(:button_user_activity), user_activities_path, 'check'
+                    %li= icon_link_to t(:button_sign_out), destroy_user_session_path, 'signout', method: :delete
     .container-fluid
       .container-fluid
         = bootstrap_flash
