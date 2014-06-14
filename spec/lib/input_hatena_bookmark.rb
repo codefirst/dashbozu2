@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'Dashbozu::InputHatenaBookmark' do
-  context 'hook' do
+  context 'add' do
     before {
       params = {
         username: 'test_user',
@@ -22,5 +22,22 @@ describe 'Dashbozu::InputHatenaBookmark' do
     its (:url) { should eq 'http://permalink.example.com' }
     its (:author) { should eq 'test_user' }
     its (:icon_url) { should eq 'http://cdn1.www.st-hatena.com/users/su/test_user/profile.gif' }
+  end
+  context 'update' do
+    before {
+      params = {
+        username: 'test_user',
+        title: 'test article',
+        url: 'http://example.com',
+        count: 10,
+        permalink: 'http://permalink.example.com',
+        status: 'update',
+        comment: 'a comment'
+      }
+      @project = Project.new
+      @activities = Dashbozu::InputHatenaBookmark.new.hook(@project, params)
+    }
+    subject { @activities }
+    it { should be_empty }
   end
 end

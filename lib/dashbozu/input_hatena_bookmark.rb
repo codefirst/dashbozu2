@@ -8,6 +8,7 @@ module Dashbozu
     end
 
     def hook(project, params)
+      return [] unless params[:status] == 'add'
       [Activity.new(
         project_id: project.id,
         title: "[Bookmark] #{params[:status]} - #{params[:title]}",
