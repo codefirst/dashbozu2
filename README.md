@@ -150,6 +150,20 @@ Set Web Hook configuration in your preference:
 
     http://your.dashbozu.host/hook/your-api-key/hatena_bookmark
 
+### Trello
+
+1. Get developer API_KEY. Access: https://trello.com/1/appkey/generate
+2. Get TOKEN. Access: https://trello.com/1/authorize?key=API_KEY&name=dashbozu&expiration=never&response_type=token&scope=read
+3. Get BOARD_SHORT_ID. Look your board URL: https://trello.com/b/BOARD_SHORT_ID/BOARD_NAME
+4. Get BOARD_ID. Access: https://trello.com/1/boards/BOARD_SHORT_ID
+3. Create WebHook.
+
+    $ curl -XPOST 'https://trello.com/1/tokens/[TOKEN]/webhooks/?key=API_KEY' -d '{
+      "description": 'Dashbozu',
+      "callbackURL": 'http://your.dashbozu.host/hook/your-api-key/trello',
+      "idModel": 'BOARD_ID'
+    }'
+
 Notification
 ---------------
 
