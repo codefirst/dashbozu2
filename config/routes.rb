@@ -24,4 +24,5 @@ Dashbozu2::Application.routes.draw do
   get ':controller/:action', controller: 'authentication'
 
   post 'hook/:api_key/*name', to: 'hook#hook', as: :hook
+  get 'hook/:api_key/*name', to: 'hook#hook'
 end

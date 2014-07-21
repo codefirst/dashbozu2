@@ -20,6 +20,8 @@ class HookController < ApplicationController
       return
     end
 
+    return render json: {status: 'ok'} if request.get?
+
     activities = input_plugin.hook(project, params)
     activities.each do |activity|
       activity.save!
