@@ -158,10 +158,10 @@ Set Web Hook configuration in your preference:
 4. Get BOARD_ID. Access: https://trello.com/1/boards/BOARD_SHORT_ID
 3. Create WebHook.
 
-    $ curl -XPOST 'https://trello.com/1/tokens/[TOKEN]/webhooks/?key=API_KEY' -d '{
-      "description": 'Dashbozu',
-      "callbackURL": 'http://your.dashbozu.host/hook/your-api-key/trello',
-      "idModel": 'BOARD_ID'
+    $ curl -XPOST -H 'Content-type: application/json' 'https://trello.com/1/tokens/TOKEN/webhooks/?key=API_KEY' -d '{
+      "description": "Dashbozu",
+      "callbackURL": "http://your.dashbozu.host/hook/your-api-key/trello",
+      "idModel": "BOARD_ID"
     }'
 
 Notification
