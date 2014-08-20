@@ -1,0 +1,60 @@
+{
+  "name": "Dashbozu",
+  "description": "Store and notify your all development activities",
+  "repository": "https://github.com/codefirst/dashbozu2/",
+  "logo": "https://raw.githubusercontent.com/codefirst/dashbozu2/master/app/assets/images/overview.png",
+  "env": {
+    "GITHUB_KEY": {
+      "description": "GitHub API Key (optional)",
+      "required": false
+    },
+    "GITHUB_SECRET": {
+      "description": "GitHub API Secret (optional)",
+      "required": false
+    },
+    "BITBUCKET_KEY": {
+      "description": "Bitbucket API Key (optional)",
+      "required": false
+    },
+    "BITBUCKET_SECRET": {
+      "description": "Bitbucket API Secret (optional)",
+      "required": false
+    },
+    "OUTPUT_ASAKUSA_SATELLILTE_URL": {
+      "description": "AsakusaSatellite URL (optional)",
+      "required": false
+    },
+    "OUTPUT_ASAKUSA_SATELLILTE_API_KEY": {
+      "description": "AsakusaSatellite API Key (optional)",
+      "required": false
+    },
+    "OUTPUT_ASAKUSA_SATELLILTE_ROOM_ID": {
+      "description": "AsakusaSatellite Room ID (optional)",
+      "required": false
+    },
+    "OUTPUT_CHAT_WORK_TOKEN": {
+      "description": "ChatWork Token (optional)",
+      "required": false
+    },
+    "OUTPUT_CHAT_WORK_ROOM_ID": {
+      "description": "ChatWork Room ID (optional)",
+      "required": false
+    },
+    "OUTPUT_HTTP_URL": {
+      "description": "WebHook URL (optional)",
+      "required": false
+    },
+    "DASHBOZU_TIMEZONE": {
+      "description": "Timezone (optional)",
+      "value": "Asia/Tokyo",
+      "required": false
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate RAILS_ENV=production"
+  }
+}
+
