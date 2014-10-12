@@ -31,6 +31,7 @@ module Dashbozu
     private
     def hook_push(project, json)
       repos_name = json['repository']['name']
+      return [] unless json['commits']
       json['commits'].map do |c|
         Activity.new(
           project_id: project.id,

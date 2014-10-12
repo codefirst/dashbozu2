@@ -34,6 +34,17 @@ describe 'Dashbozu::InputGitHub' do
         its (:icon_url) { should =~ /gravatar/ }
       end
     end
+    context 'has payload param key without commits' do
+      before {
+        @payload = File.read(File.dirname(__FILE__) + '/data/github/empty_push.json')
+        @project = Project.new
+        @activities = Dashbozu::InputGitHub.new.hook(@project, payload: @payload)
+      }
+      context 'length' do
+        subject { @activities }
+        its (:length) { should eq 0 }
+      end
+    end
 
     context 'params as json' do
       before {
