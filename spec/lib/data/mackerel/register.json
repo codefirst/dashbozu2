@@ -1,0 +1,12 @@
+{
+  "action": "hook",
+  "api_key": "...",
+  "controller": "hook",
+  "event": "sample",
+  "hook": {
+    "event": "sample",
+    "message": "Sample Notification from Mackerel"
+  },
+  "message": "Sample Notification from Mackerel",
+  "name": "mackerel"
+}
