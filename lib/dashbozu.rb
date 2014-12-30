@@ -18,4 +18,5 @@ require 'dashbozu/input_dploy'
 require 'dashbozu/input_hatena_bookmark'
 require 'dashbozu/input_trello'
 require 'dashbozu/input_mackerel'
+require 'dashbozu/input_esa_io'
 
