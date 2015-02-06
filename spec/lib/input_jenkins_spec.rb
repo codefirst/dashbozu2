@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'Dashbozu::InputJenkins' do
   context 'build' do

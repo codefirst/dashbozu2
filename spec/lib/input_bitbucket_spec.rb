@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'Dashbozu::InputBitbucket' do
   context 'push' do

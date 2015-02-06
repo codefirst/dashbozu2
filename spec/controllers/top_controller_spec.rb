@@ -1,11 +1,11 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe TopController do
+describe TopController, type: :controller do
 
   describe "GET 'index'" do
     it "returns http success" do
       get 'index'
-      response.should be_success
+      expect(response).to be_success
     end
   end
 

@@ -1,14 +1,14 @@
-require "spec_helper"
+require "rails_helper"
 
-describe ActivitiesController do
+describe ActivitiesController, type: :routing do
   describe "routing" do
 
     it "routes to #index" do
-      get("/activities").should route_to("activities#all")
+      expect(get("/activities")).to route_to("activities#all")
     end
 
     it "routes to #show" do
-      get("/activities/1").should route_to("activities#show", :id => "1")
+      expect(get("/activities/1")).to route_to("activities#show", :id => "1")
     end
 
   end

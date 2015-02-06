@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Activity do
   describe 'add encrypted identifier before save' do
