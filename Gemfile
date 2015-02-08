@@ -13,6 +13,8 @@ group :development, :test do
   gem 'sqlite3'
   gem 'erb2haml'
   gem 'rspec-rails'
+  gem 'rspec-its'
+  gem 'rspec-collection_matchers'
   gem 'quiet_assets'
 end
 

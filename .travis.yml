@@ -4,6 +4,7 @@ rvm:
   - 1.9.3
   - 2.0.0
   - 2.1.0
+  - 2.2.0
 notifications:
   webhooks:
     secure: "dikj0MAlea1fPJ9Cmj95U+N0dqTMTJMTeJjzZdnxe5q4gupjJWTkhWrnzaS4lu1dGeTYDLKY+D9Z7dFJiN73kgUERwlMSg9KM23lSjVclhAFbfCRLQe3Lutpa5abw65reZ/x2vu+Ue9MmYkPET51bK61Bug6DaBOWnvK8AuX5/E="

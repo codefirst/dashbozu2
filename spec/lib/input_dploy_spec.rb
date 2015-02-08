@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'Dashbozu::InputDploy' do
   context 'post deployment' do

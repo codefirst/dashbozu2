@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'Dashbozu::Plugin' do
   context 'register_input' do
@@ -42,7 +42,7 @@ describe 'Dashbozu::Plugin' do
         end
       end
     }
-    it { Dashbozu::Plugin.project_input.values.should include ProjectInputTest }
-    it { Dashbozu::Plugin.user_input.values.should include UserInputTest }
+    it { expect(Dashbozu::Plugin.project_input.values).to include ProjectInputTest }
+    it { expect(Dashbozu::Plugin.user_input.values).to include UserInputTest }
   end
 end

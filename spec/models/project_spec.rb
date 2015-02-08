@@ -1,11 +1,11 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Project do
   describe 'api_key generated automatically' do
     before do
       @project = Project.create!(name: 'name')
     end
-    it { @project.api_key.should_not be_empty }
+    it { expect(@project.api_key).not_to be_empty }
   end
 
   describe 'find by api_key' do
@@ -56,8 +56,8 @@ describe Project do
         @project.users << @user
         @project.create_association(@user)
       end
-      it { @project.users.should have(1).items }
-      it { @project.users.first.id.should eq @user.id }
+      it { expect(@project.users).to have(1).items }
+      it { expect(@project.users.first.id).to eq @user.id }
     end
   end
 

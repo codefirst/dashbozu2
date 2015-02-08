@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe HookController do
+describe HookController, type: :controller do
 
 #  context 'get' do
 #    before {

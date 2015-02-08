@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
 # the ActivitiesHelper. For example:
@@ -10,7 +10,7 @@ require 'spec_helper'
 #     end
 #   end
 # end
-describe ActivitiesHelper do
+describe ActivitiesHelper, type: :helper do
   context 'activity_source_image_url' do
     before { @activity = Activity.new(source: 'github') }
     subject { activity_source_image_url(@activity) }

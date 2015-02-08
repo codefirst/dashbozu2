@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe ProfileController do
+describe ProfileController, type: :controller do
 
   before do
     user = User.create!
@@ -11,7 +11,7 @@ describe ProfileController do
   describe "GET 'show'" do
     it "returns http success" do
       get 'show'
-      response.should be_success
+      expect(response).to be_success
     end
   end
 

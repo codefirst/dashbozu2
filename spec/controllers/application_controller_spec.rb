@@ -1,9 +1,9 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe ApplicationController do
+describe ApplicationController, type: :controller do
   context "logged_provider" do
     before do
-      Settings.stub(:omniauth) { {github: {}} }
+      allow(Settings).to receive(:omniauth) { {github: {}} }
       session['github_oauth_credentials'] = 'test'
     end
     subject { controller.logged_provider }
