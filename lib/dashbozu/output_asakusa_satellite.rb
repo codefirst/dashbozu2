@@ -25,9 +25,8 @@ module Dashbozu
 
     def post(activity)
       uri = URI.parse(make_url)
-      Net::HTTP.start(uri.host, uri.port) do |http|
-        http.post(uri.path, make_body(activity))
-      end
+      client = Faraday.new(url: "#{uri.scheme}://#{uri.host}:#{uri.port}")
+      client.post(uri.path, make_body(activity))
     end
 
     def make_url
@@ -35,21 +34,18 @@ module Dashbozu
     end
 
     def make_body(activity)
-      [
-        "room_id=#{room_id}",
-        "api_key=#{api_key}",
-        "message=#{escape(make_message(activity))}"
-      ].join("&")
+      {
+        room_id: room_id,
+        api_key: api_key,
+        message: make_message(activity)
+      }
     end
 
     def make_message(activity)
-      erb = ERB.new(message_template)
+      erb = ERB.new(message_template || "<%= activity.html_url %>")
       erb.result(binding)
     end
 
-    def escape(str)
-      URI.escape(URI.escape(str), /[&+]/)
-    end
   end
 end
 
