@@ -22,9 +22,10 @@ describe 'Dashbozu::OutputAsakusaSatellite' do
   context 'make_body' do
     before {
       @activity = Activity.new(title: 'test_title')
+      @json = {room_id: 'TEST_ROOM_ID', api_key: 'TEST_API_KEY', message: 'test_title' }
     }
     subject { Dashbozu::OutputAsakusaSatellite.new.make_body(@activity) }
-    it { should eq 'room_id=TEST_ROOM_ID&api_key=TEST_API_KEY&message=test_title' }
+    it { should eq @json }
   end
 end
 
