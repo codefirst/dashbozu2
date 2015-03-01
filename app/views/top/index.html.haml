@@ -15,12 +15,12 @@
     .content
       .span3.offset3.text-center
         = form_tag user_omniauth_authorize_path(:github), :method => 'post' do |f|
-          %button.btn.btn-primary.btn-large
+          %button.btn.btn-primary.btn-large{ disabled: !github? }
             %i.icon-signin
             = "#{t(:button_sign_in)} with GitHub"
       .span3.text-center
         = form_tag user_omniauth_authorize_path(:bitbucket), :method => 'post' do |f|
-          %button.btn.btn-primary.btn-large
+          %button.btn.btn-primary.btn-large{ disabled: !bitbucket? }
             %i.icon-signin
             = "#{t(:button_sign_in)} with Bitbucket"
 
