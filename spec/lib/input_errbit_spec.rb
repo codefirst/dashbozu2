@@ -5,6 +5,7 @@ describe 'Dashbozu::InputErrbit' do
     before {
     @payload = <<PAYLOAD
 {
+  "url": "https://example.com",
   "_id":"51e377fd523c72000c00012a",
   "app_id":"51e377fc523c72000c000002",
   "app_name":"Self.Errbit",
@@ -54,6 +55,7 @@ PAYLOAD
       subject { @activities[0] }
       its (:source) { should eq 'errbit' }
       its (:body) { should eq "Sprockets::FileNotFound: couldn't find file 'jquery' (in /app/app/assets/javascripts/application.js.erb:2)" }
+      its (:url) { should eq "https://example.com" }
       its (:title) { should eq '[Error] Self.Errbit - Sprockets::FileNotFound' }
       its (:status) { should eq 'error' }
       its (:author) { should eq 'devise/sessions#new' }
