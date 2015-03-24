@@ -87,6 +87,15 @@ You will get encrypted value. Edit ```.travis.yml```.
       webhooks:
         secure: "your-encrypted-value"
 
+### CircleCI
+
+Edit ```circle.yml```.
+
+    ...
+    notify:
+      webhooks:
+        - url: http://your.dashbozu.host/hook/your-api-key/circle_ci
+
 ### Heroku
 
     heroku addons:add deployhooks:http \
