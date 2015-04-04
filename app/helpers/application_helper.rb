@@ -8,4 +8,9 @@ module ApplicationHelper
     link_to("<i class=\"icon-#{icon_name}\"></i> #{text}".html_safe, url, options)
   end
 
+  def title(text)
+    page_tilte = ''
+    page_tilte = "#{text} - " unless text.blank?
+    page_tilte << 'Dashbozu'
+  end
 end
