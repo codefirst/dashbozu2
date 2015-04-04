@@ -1,8 +1,12 @@
 - unless @project
+  - content_for :title do
+    Activities
   %ul.breadcrumb
     %li.active
-      = 'Activities'
+      Activities
 - else
+  - content_for :title do
+    = @project.name
   %ul.breadcrumb
     %li
       = link_to 'Projects', projects_path
