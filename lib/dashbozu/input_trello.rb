@@ -13,6 +13,9 @@ module Dashbozu
 
       user = json['action']['memberCreator']
       card = json['action']['data']['card']
+
+      return [] unless card
+
       [Activity.new(
           project_id: project.id,
           title: "[Card] #{json['model']['name']} - ##{card['idShort']} : #{card['name']}",
