@@ -24,6 +24,8 @@ module Dashbozu
         end
       elsif json['pull_request']
         return hook_pull_request(project, json)
+      elsif json['check_run']
+        return hook_check_run(project, json)
       end
       return []
     end
@@ -67,6 +69,23 @@ module Dashbozu
         title: "[Pull Request] #{pull_request['head']['repo']['name']} - ##{pull_request['number']} #{json['action']}: #{pull_request['title']}",
         body: pull_request['body'],
         url: pull_request['html_url'],
+        author: user['login'],
+        icon_url: user['avatar_url'],
+        source: 'github'
+      )]
+    end
+
+    def hook_check_run(project, json)
+      return [] unless json['action'] == 'completed'
+
+      check_run = json['check_run']
+      user = json['sender']
+      [Activity.new(
+        project_id: project.id,
+        title: "#{json['repository']['name']} -  #{check_run['conclusion']}",
+        body: check_run['body'],
+        status: check_run['conclusion'] == 'success' ? 'success' : 'error',
+        url: check_run['check_suite']['head_branch'],
         author: user['login'],
         icon_url: user['avatar_url'],
         source: 'github'
