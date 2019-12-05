@@ -130,7 +130,7 @@ GEM
       omniauth (~> 1.0)
     orm_adapter (0.5.0)
     pg (0.17.1)
-    puma (2.14.0)
+    puma (3.12.2)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.5)
@@ -241,7 +241,7 @@ DEPENDENCIES
   omniauth-bitbucket
   omniauth-github
   pg
-  puma (= 2.14.0)
+  puma (= 3.12.2)
   quiet_assets
   rails (= 4.0.13)
   rspec-collection_matchers
