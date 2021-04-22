@@ -103,7 +103,7 @@ GEM
     newrelic_rpm (3.13.0.299)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
-    oauth (0.4.7)
+    oauth (0.5.6)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
