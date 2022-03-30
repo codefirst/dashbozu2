@@ -101,6 +101,7 @@ GEM
     multi_json (1.11.2)
     multipart-post (1.2.0)
     newrelic_rpm (3.13.0.299)
+    nio4r (2.5.8)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     oauth (0.4.7)
@@ -130,7 +131,8 @@ GEM
       omniauth (~> 1.0)
     orm_adapter (0.5.0)
     pg (0.17.1)
-    puma (2.14.0)
+    puma (4.3.12)
+      nio4r (~> 2.0)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.5)
@@ -241,7 +243,7 @@ DEPENDENCIES
   omniauth-bitbucket
   omniauth-github
   pg
-  puma (= 2.14.0)
+  puma (= 4.3.12)
   quiet_assets
   rails (= 4.0.13)
   rspec-collection_matchers
