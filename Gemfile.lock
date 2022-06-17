@@ -40,6 +40,7 @@ GEM
       simple_oauth
     builder (3.1.4)
     commonjs (0.2.7)
+    concurrent-ruby (1.1.10)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -74,7 +75,8 @@ GEM
       hpricot (~> 0.8.6)
       ruby_parser (~> 3.1.1)
     httpauth (0.2.0)
-    i18n (0.7.0)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
